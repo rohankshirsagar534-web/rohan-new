@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { X, ArrowRight, ArrowLeft, ArrowUpRight, Film, CheckCircle, Sliders, Box, Sparkles, Video, Layers, Palette, PenTool, Radio, Play, Pause, Volume2, VolumeX } from 'lucide-react';
+import { X, ArrowRight, ArrowLeft, ArrowUpRight, Film, CheckCircle, Sliders, Box, Sparkles, Video, Layers, Palette, PenTool, Radio, Play, Pause, Volume2, VolumeX, Upload } from 'lucide-react';
 import { Project } from '../types';
+import { resolveAsset } from '../utils/assets';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -21,6 +22,68 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
   const [isMuted, setIsMuted] = useState<boolean>(true);
   const [videoError, setVideoError] = useState<boolean>(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  // User custom video overrides (persisted in localStorage)
+  const [customVideoUrls, setCustomVideoUrls] = useState<Record<string, string>>(() => {
+    try {
+      const saved = localStorage.getItem('rohan_project_videos');
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+  const [isEditingVideo, setIsEditingVideo] = useState<boolean>(false);
+  const [inputVideoUrl, setInputVideoUrl] = useState<string>('');
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+  const activeVideoUrl = project ? (customVideoUrls[project.id] || project.videoUrl) : undefined;
+
+  const handleSaveVideoUrl = (rawUrl: string) => {
+    if (!project) return;
+    const cleanUrl = rawUrl.trim();
+    if (!cleanUrl) return;
+
+    let finalUrl = cleanUrl;
+    if (cleanUrl.includes('savedly.net/f/3ta3rwsm') || cleanUrl.includes('savedly.net')) {
+      finalUrl = '/videos/kara_by_rohan.mp4';
+    } else if (cleanUrl.includes('jumpshare.com/s/Ay6kHCYfGP2s3hW06wJQ')) {
+      finalUrl = '/videos/ay6khcyf_video.mp4';
+    }
+
+    const updated = { ...customVideoUrls, [project.id]: finalUrl };
+    setCustomVideoUrls(updated);
+    try {
+      localStorage.setItem('rohan_project_videos', JSON.stringify(updated));
+    } catch {
+      // ignore
+    }
+    setMediaMode('video');
+    setVideoError(false);
+    setIsEditingVideo(false);
+  };
+
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file && project) {
+      const blobUrl = URL.createObjectURL(file);
+      handleSaveVideoUrl(blobUrl);
+    }
+  };
+
+  const handleResetVideo = () => {
+    if (!project) return;
+    const updated = { ...customVideoUrls };
+    delete updated[project.id];
+    setCustomVideoUrls(updated);
+    try {
+      localStorage.setItem('rohan_project_videos', JSON.stringify(updated));
+    } catch {
+      // ignore
+    }
+    setMediaMode('video');
+    setVideoError(false);
+    setIsEditingVideo(false);
+  };
 
   // Toggle video play / pause safely
   const togglePlay = () => {
@@ -101,6 +164,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
     setIsPlaying(false);
     setIsMuted(true);
     setVideoError(false);
+    setIsEditingVideo(false);
+    setInputVideoUrl('');
   }, [project?.id, project?.category]);
 
   const activeProjectList =
@@ -234,14 +299,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               ? 'aspect-[9/16] max-w-sm mx-auto'
               : 'aspect-video w-full'
           }`}>
-            {project.videoUrl && mediaMode === 'video' && !videoError ? (
+            {activeVideoUrl && mediaMode === 'video' && !videoError ? (
               <div className="relative w-full h-full group/video">
                 <video
                   ref={videoRef}
                   id="project-hero-video"
-                  key={`${project.id}-${project.videoUrl}`}
-                  src={project.videoUrl}
-                  poster={project.heroImage}
+                  key={`${project.id}-${activeVideoUrl}`}
+                  src={resolveAsset(activeVideoUrl)}
+                  poster={resolveAsset(project.heroImage)}
                   controls
                   autoPlay
                   loop
@@ -257,7 +322,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                     project.aspectRatio === 'portrait' || project.aspectRatio === 'tall' ? 'object-contain bg-black' : 'object-cover'
                   }`}
                 >
-                  <source src={project.videoUrl} type="video/mp4" />
+                  <source src={resolveAsset(activeVideoUrl)} type="video/mp4" />
                   Your browser does not support HTML5 video playback.
                 </video>
 
@@ -276,7 +341,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             ) : (
               <img
                 id="project-hero-media-img"
-                src={project.heroImage}
+                src={resolveAsset(project.heroImage)}
                 alt={project.title}
                 referrerPolicy="no-referrer"
                 className={`w-full h-full ${
@@ -286,7 +351,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             )}
 
             {/* Quick Unmute / Volume button when playing video */}
-            {project.videoUrl && mediaMode === 'video' && !videoError && (
+            {activeVideoUrl && mediaMode === 'video' && !videoError && (
               <button
                 type="button"
                 onClick={toggleMute}
@@ -301,7 +366,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
             {/* Compact top-right status & view mode controls - prevents blocking video playbar */}
             <div className="absolute top-3 right-3 flex items-center gap-1.5 pointer-events-auto z-20">
-              {project.videoUrl && (
+              {activeVideoUrl && (
                 <div className="flex items-center gap-1 bg-black/85 backdrop-blur-md px-1.5 py-1 rounded-full border border-white/20 shadow-lg text-[10px] font-mono">
                   <button
                     type="button"

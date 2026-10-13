@@ -28,16 +28,20 @@ export const PROJECTS: Project[] = [
   {
     id: 'title-animation',
     number: '01',
-    title: 'TITLE ANIMATION',
+    title: 'TITLE ANIMATION // KARA',
     category: 'MOTION',
     categoryDisplay: 'Motion Graphics / Animation',
     year: '2025',
-    description: 'Kinetic typography sequence and motion graphic identity exploring brutalist type hierarchy, film grain transitions, and syncopated audio-visual rhythm.',
+    description: 'Kinetic typography sequence and cinematic title animation exploring brutalist type hierarchy, film grain transitions, and syncopated audio-visual rhythm.',
     role: 'Art Director & Motion Designer',
     clientOrContext: 'Independent Film Title Sequence',
     software: ['After Effects', 'Illustrator', 'Cinema 4D'],
-    thumbnail: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop',
-    heroImage: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1600&auto=format&fit=crop',
+    thumbnail: '/images/kara_poster.jpg',
+    heroImage: '/images/kara_poster.jpg',
+    // Video URL for TITLE ANIMATION - KARA BY ROHAN from savedly.net:
+    videoUrl: '/videos/kara_by_rohan.mp4',
+    externalUrl: 'https://savedly.net/f/3ta3rwsm',
+    externalUrlLabel: 'SAVEDLY SOURCE',
     aspectRatio: 'wide',
     featured: true,
     creativeProcess: [
@@ -49,14 +53,15 @@ export const PROJECTS: Project[] = [
       labelBefore: 'Raw Layout Sketch',
       labelAfter: 'Final Motion Composite',
       imageBefore: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop',
-      imageAfter: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop',
+      imageAfter: '/images/kara_poster.jpg',
       description: 'Side-by-side progression from typographic wireframe to textured cinematic motion render.'
     },
     finalResultText: 'Delivered an energetic 45-second modular motion pack including opening sequence, title cards, lower thirds, and animated social teaser cutdowns.',
     gallery: [
+      '/images/kara_poster.jpg',
+      '/images/kara_frame_08.jpg',
       'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=1200&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?q=80&w=1200&auto=format&fit=crop'
     ]
   },
   {

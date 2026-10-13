@@ -4,6 +4,8 @@ import { PROJECTS, ANIMATION_2D_GALLERY } from '../data/portfolioData';
 import { Project, ProjectCategory } from '../types';
 import { Marquee } from './Marquee';
 import { Animation2DGallery } from './Animation2DGallery';
+import { GraphicDesignShowreel } from './GraphicDesignShowreel';
+import { resolveAsset } from '../utils/assets';
 
 interface ProjectsProps {
   onSelectProject: (project: Project) => void;
@@ -200,7 +202,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onSelectProject }) => {
                   {/* Image Container with Film Grain & Zoom */}
                   <div className="relative w-full aspect-[16/10] overflow-hidden bg-black">
                     <img
-                      src={project.thumbnail}
+                      src={resolveAsset(project.thumbnail)}
                       alt={project.title}
                       loading="lazy"
                       className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-[1.03] transition-transform duration-700 ease-out"
@@ -279,6 +281,11 @@ export const Projects: React.FC<ProjectsProps> = ({ onSelectProject }) => {
         {/* 2. Distinct, Separated 2D Animation Space (Rendered when SHORT AD FILM is selected and user views ALL or 2D ANIMATION) */}
         {isShortAdFilmActive && (adFilmSubView === 'all' || adFilmSubView === '2d_animation') && (
           <Animation2DGallery />
+        )}
+
+        {/* 3. Dedicated Graphic Design Showreel: 4 9:16 Video Reels (2x2 grid), Selected Graphic Work Gallery, and Behind The Process Slider */}
+        {(selectedCategory === 'ALL' || selectedCategory === 'GRAPHIC DESIGN') && (
+          <GraphicDesignShowreel />
         )}
 
       </div>

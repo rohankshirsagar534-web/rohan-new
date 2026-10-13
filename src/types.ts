@@ -98,3 +98,39 @@ export interface ContactFormData {
   projectType: string;
   message: string;
 }
+
+export interface GraphicDesignReel {
+  id: string;
+  number: string;
+  title: string;
+  tagline: string;
+  videoUrl: string;
+  poster: string;
+  software: string[];
+  duration?: string;
+  year?: string;
+}
+
+export interface GraphicDesignGalleryItem {
+  id: string;
+  title: string;
+  category: 'Posters' | 'Banners' | 'Thumbnails' | 'Advertisements' | 'Branding';
+  imageUrl: string;
+  aspectRatio: 'poster' | 'banner' | 'thumbnail' | 'square';
+  description: string;
+  software: string[];
+  year: string;
+  client?: string;
+}
+
+export interface GraphicDesignProcessItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  beforeLabel: string;
+  afterLabel: string;
+  beforeImage: string;
+  afterImage: string;
+  description: string;
+  software: string[];
+}
