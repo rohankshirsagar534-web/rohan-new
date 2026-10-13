@@ -46,7 +46,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             : 'bg-transparent border-b border-black/5 py-5'
         }`}
       >
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 flex items-center justify-between">
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 flex items-center justify-between font-bold text-[20px]">
           {/* Monogram / Logo */}
           <a
             id="nav-logo-link"
@@ -55,14 +55,14 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             className="group flex items-center gap-2.5 focus:outline-hidden"
             aria-label="Rohan Kshirsagar Portfolio Home"
           >
-            <div className="w-9 h-9 bg-black text-[#F7A928] font-display font-extrabold text-base flex items-center justify-center rounded-xs transition-transform duration-200 group-hover:scale-105 group-hover:bg-[#F7A928] group-hover:text-black">
+            <div className="w-11 h-11 bg-black text-[#F7A928] font-display font-extrabold text-[29px] leading-[35.5px] flex items-center justify-center rounded-xs transition-transform duration-200 group-hover:scale-105 group-hover:bg-[#F7A928] group-hover:text-black">
               {PERSONAL_INFO.monogram}
             </div>
             <div className="hidden sm:flex flex-col">
-              <span className="font-bold text-xs tracking-wider uppercase text-black">
+              <span className="font-bold text-[23px] leading-tight tracking-wider uppercase text-black">
                 {PERSONAL_INFO.name}
               </span>
-              <span className="text-[10px] tracking-widest text-[#555555] uppercase">
+              <span className="text-[16px] tracking-widest text-[#555555] uppercase">
                 PORTFOLIO
               </span>
             </div>
@@ -72,13 +72,22 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           <nav id="desktop-nav" className="hidden lg:flex items-center gap-7">
             {navItems.map((item) => {
               const isActive = activeSection === item.href.substring(1);
+              const customClass =
+                item.label === 'ABOUT'
+                  ? 'text-[21px] font-bold leading-[17px]'
+                  : item.label === 'HOME'
+                  ? 'text-[20px] font-bold leading-[19px]'
+                  : item.label === 'WORK'
+                  ? 'text-[20px] font-bold leading-[18px]'
+                  : 'text-[20px] font-bold';
+
               return (
                 <a
                   key={item.label}
                   id={`nav-link-${item.label.toLowerCase()}`}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className={`text-xs font-semibold tracking-wider transition-colors duration-200 py-1 relative ${
+                  className={`tracking-wider transition-colors duration-200 py-1 relative ${customClass} ${
                     isActive ? 'text-black' : 'text-[#555555] hover:text-black'
                   }`}
                 >
@@ -97,7 +106,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               id="nav-availability-cta"
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
-              className="hidden sm:inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-black/15 bg-white/80 text-[11px] font-semibold tracking-wider uppercase text-black hover:border-black hover:bg-black hover:text-white transition-all duration-200"
+              className="hidden sm:inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-black/15 bg-white/80 text-[14px] leading-[22.5px] font-semibold tracking-wider uppercase text-black hover:border-black hover:bg-black hover:text-white transition-all duration-200"
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F7A928] opacity-75"></span>

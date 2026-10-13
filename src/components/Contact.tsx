@@ -144,6 +144,7 @@ export const Contact: React.FC = () => {
                   {PERSONAL_INFO.socials.map((social) => (
                     <a
                       key={social.name}
+                      id={`contact-social-${social.name.toLowerCase()}`}
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"

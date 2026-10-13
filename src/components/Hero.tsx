@@ -35,7 +35,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
   return (
     <section
       id="home"
-      className="relative min-h-[92vh] pt-28 pb-12 sm:pt-32 sm:pb-16 flex flex-col justify-between overflow-hidden film-grain"
+      className="relative min-h-[92vh] pt-28 pb-12 sm:pt-32 sm:pb-16 flex flex-col justify-between overflow-hidden film-grain font-bold text-[20px] leading-[23px]"
     >
       {/* Decorative background grid line accents */}
       <div className="absolute inset-0 pointer-events-none max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-6 opacity-20">
@@ -58,10 +58,10 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
             <div className="flex items-center gap-3 mb-6">
               <div className="w-2.5 h-2.5 bg-[#F7A928] rounded-full"></div>
               <div className="flex flex-col">
-                <span className="font-mono text-xs tracking-widest uppercase font-bold text-black">
+                <span className="font-mono text-[28px] leading-[42px] tracking-widest uppercase font-bold text-black">
                   {PERSONAL_INFO.name}
                 </span>
-                <span className="font-mono text-[10px] tracking-widest uppercase text-[#555555]">
+                <span className="font-mono text-[16px] tracking-widest uppercase text-[#555555]">
                   {PERSONAL_INFO.shortRole}
                 </span>
               </div>
@@ -73,10 +73,10 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
             {/* Main Headline (Oversized Editorial Typography) */}
             <h1
               id="hero-main-title"
-              className="font-display font-black text-black leading-[0.88] tracking-tighter uppercase text-[58px] sm:text-[88px] md:text-[110px] lg:text-[130px] xl:text-[150px] mb-6 select-none"
+              className="font-display font-black text-black text-[69px] leading-[84.72px] tracking-tighter uppercase mb-6 select-none"
             >
               VISUAL<br />
-              <span className="text-black inline-flex items-center">
+              <span className="text-black inline-flex items-center leading-[98.72px]">
                 STORYTELLER<span className="text-[#F7A928]">.</span>
               </span>
             </h1>
@@ -117,9 +117,9 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
 
             {/* Editorial Quick Tags */}
             <div className="mt-10 pt-6 border-t border-black/10 flex flex-wrap items-center gap-3 text-xs font-mono text-[#666666]">
-              <span className="px-2.5 py-1 bg-black/5 rounded-xs">#CINEMATIC_VFX</span>
+              <span className="px-2.5 py-1 bg-black/5 rounded-xs text-[13px]">#CINEMATIC_VFX</span>
               <span className="px-2.5 py-1 bg-black/5 rounded-xs">#VIDEO_POST</span>
-              <span className="px-2.5 py-1 bg-black/5 rounded-xs">#MOTION_SYSTEMS</span>
+              <span className="px-2.5 py-1 bg-black/5 rounded-xs text-[13px]">#MOTION_SYSTEMS</span>
               <span className="px-2.5 py-1 bg-black/5 rounded-xs">#3D_ART</span>
             </div>
           </div>
@@ -152,12 +152,17 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
               {/* Central Photographic Visual */}
               <div className="relative w-full h-[82%] rounded-2xl sm:rounded-[24px] overflow-hidden bg-black mt-6">
                 <img
-                  src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1200&auto=format&fit=crop"
+                  id="hero-card-img"
+                  src="https://i.ibb.co/0jdjh24J/Chat-GPT-Image-Sep-17-2026-02-16-34-AM.png"
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).src = '/assets/hero_portrait_v2.png';
+                  }}
+                  referrerPolicy="no-referrer"
                   alt="Rohan Kshirsagar Visual Universe"
-                  className="w-full h-full object-cover grayscale contrast-125 filter group-hover:scale-105 transition-transform duration-700 ease-out"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                   loading="eager"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
                 
                 {/* Viewfinder Crosshairs */}
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40">
@@ -171,11 +176,17 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
 
                 {/* Card Overlay Text */}
                 <div className="absolute bottom-4 left-4 right-4 text-white z-10">
-                  <div className="font-mono text-[10px] text-[#F7A928] uppercase tracking-wider mb-0.5">
-                    CREATIVE DIRECTION
+                  <div
+                    id="hero-card-eyebrow"
+                    className="font-mono text-[10px] text-[#F7A928] uppercase tracking-wider mb-0.5"
+                  >
+                    BEHIND THE FRAME
                   </div>
-                  <h3 className="font-display font-bold text-lg sm:text-xl uppercase tracking-tight">
-                    CRAFTING UNSEEN WORLDS
+                  <h3
+                    id="hero-card-title"
+                    className="font-display font-bold text-lg sm:text-xl uppercase tracking-tight"
+                  >
+                    I turn raw ideas into visual experiences.
                   </h3>
                 </div>
               </div>
@@ -183,8 +194,11 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
               {/* Bottom Card Footer with Circular Arrow */}
               <div className="flex items-center justify-between px-2 pt-2">
                 <div className="flex flex-col">
-                  <span className="font-display font-extrabold text-xs uppercase tracking-wider text-black">
-                    FEATURED REEL
+                  <span
+                    id="hero-card-author-name"
+                    className="font-display font-extrabold text-xs uppercase tracking-wider text-black"
+                  >
+                    ROHAN KSHIRSAGAR
                   </span>
                   <span className="font-mono text-[10px] text-black/70">
                     CLICK TO DISCOVER WORK

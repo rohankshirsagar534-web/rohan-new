@@ -1,6 +1,6 @@
 export type ProjectCategory = 
   | 'ALL'
-  | 'VIDEO'
+  | 'SHORT AD FILM'
   | 'VFX'
   | 'MOTION'
   | '3D'
@@ -23,6 +23,8 @@ export interface Project {
   aspectRatio?: 'wide' | 'square' | 'portrait' | 'tall';
   featured?: boolean;
   videoUrl?: string;
+  externalUrl?: string;
+  externalUrlLabel?: string;
   beforeAfter?: {
     labelBefore: string;
     labelAfter: string;
@@ -33,6 +35,26 @@ export interface Project {
   creativeProcess: string[];
   finalResultText: string;
   gallery: string[];
+  designShowcase?: {
+    type: 'CHARACTER DESIGN' | 'PRODUCT DESIGN' | 'PROPS DESIGN' | 'EDITORIAL';
+    title: string;
+    subtitle: string;
+    imageUrl: string;
+    description: string;
+  }[];
+}
+
+export interface AnimationWorkItem {
+  id: string;
+  title: string;
+  type: 'video' | 'photo';
+  mediaUrl: string;
+  poster?: string;
+  tag: string;
+  aspect?: 'portrait' | 'landscape' | 'square';
+  description: string;
+  software?: string[];
+  duration?: string;
 }
 
 export interface SkillItem {

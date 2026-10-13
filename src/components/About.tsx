@@ -43,12 +43,13 @@ export const About: React.FC = () => {
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-3xl sm:rounded-[32px] overflow-hidden border border-white/20 bg-[#111111] p-3 aspect-[4/5] shadow-2xl group">
               
-              {/* Inner Black-and-White Photo */}
+              {/* Inner Photo */}
               <div className="relative w-full h-full rounded-2xl overflow-hidden bg-zinc-900">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop"
+                  src="/images/profile_rohan.jpg"
                   alt="Rohan Kshirsagar Profile"
-                  className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-95"
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover object-top contrast-105 group-hover:scale-105 transition-transform duration-700 ease-out brightness-95"
                 />
 
                 {/* Viewfinder Overlays & Crosshairs */}
@@ -129,10 +130,10 @@ export const About: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-display font-bold text-sm tracking-wider uppercase text-white mb-1">
-                    CINEMATIC PACING
+                    SHORT AD FILM CRAFT
                   </h4>
                   <p className="text-xs text-white/60 leading-normal">
-                    Precision timing, audio-visual sync, and emotional tension that holds the viewer's eye.
+                    High-retention commercial pacing, 3-second visual hooks, audio-visual sync, and brand-first emotional tension.
                   </p>
                 </div>
               </div>
