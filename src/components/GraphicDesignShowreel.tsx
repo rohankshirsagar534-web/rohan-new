@@ -16,6 +16,7 @@ import {
 import { 
   GraphicDesignGalleryItem
 } from '../types';
+import { resolveAsset } from '../utils/assets';
 
 export const GraphicDesignShowreel: React.FC = () => {
   // --- PART 1: REELS STATE ---
@@ -152,8 +153,8 @@ export const GraphicDesignShowreel: React.FC = () => {
                   {/* HTML5 Video with replaceable videoUrl */}
                   <video
                     ref={(el) => { videoRefs.current[reel.id] = el; }}
-                    src={reel.videoUrl}
-                    poster={reel.poster}
+                    src={resolveAsset(reel.videoUrl)}
+                    poster={resolveAsset(reel.poster)}
                     loop
                     playsInline
                     controls={isPlaying}
@@ -165,7 +166,7 @@ export const GraphicDesignShowreel: React.FC = () => {
                       if (playingReelId === reel.id) setPlayingReelId(null);
                     }}
                   >
-                    <source src={reel.videoUrl} type="video/mp4" />
+                    <source src={resolveAsset(reel.videoUrl)} type="video/mp4" />
                   </video>
 
                   {/* Gradient vignettes */}
@@ -322,7 +323,7 @@ export const GraphicDesignShowreel: React.FC = () => {
                 {/* Image Container */}
                 <div className={`relative ${aspectClass} w-full overflow-hidden bg-black`}>
                   <img
-                    src={item.imageUrl}
+                    src={resolveAsset(item.imageUrl)}
                     alt={item.title}
                     loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
@@ -450,7 +451,7 @@ export const GraphicDesignShowreel: React.FC = () => {
           <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full rounded-2xl overflow-hidden border border-white/15 select-none bg-black shadow-2xl">
             {/* 1. After Image (Background layer) */}
             <img
-              src={activeProcess.afterImage}
+              src={resolveAsset(activeProcess.afterImage)}
               alt={activeProcess.afterLabel}
               referrerPolicy="no-referrer"
               className="absolute inset-0 w-full h-full object-cover"
@@ -467,7 +468,7 @@ export const GraphicDesignShowreel: React.FC = () => {
               style={{ width: `${sliderPos}%` }}
             >
               <img
-                src={activeProcess.beforeImage}
+                src={resolveAsset(activeProcess.beforeImage)}
                 alt={activeProcess.beforeLabel}
                 referrerPolicy="no-referrer"
                 className="absolute inset-0 w-full h-full object-cover max-w-none"
@@ -553,7 +554,7 @@ export const GraphicDesignShowreel: React.FC = () => {
             {/* Media Screen */}
             <div className="relative w-full overflow-hidden bg-black flex items-center justify-center p-2 max-h-[65vh]">
               <img
-                src={activeGalleryPreview.imageUrl}
+                src={resolveAsset(activeGalleryPreview.imageUrl)}
                 alt={activeGalleryPreview.title}
                 className="max-h-[60vh] max-w-full object-contain rounded-lg"
               />

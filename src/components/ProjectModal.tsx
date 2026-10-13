@@ -36,7 +36,15 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
   const [inputVideoUrl, setInputVideoUrl] = useState<string>('');
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
-  const activeVideoUrl = project ? (customVideoUrls[project.id] || project.videoUrl) : undefined;
+  const rawActiveUrl = project ? (customVideoUrls[project.id] || project.videoUrl) : undefined;
+  let activeVideoUrl = rawActiveUrl;
+  if (activeVideoUrl) {
+    if (activeVideoUrl.includes('savedly.net/f/3ta3rwsm') || activeVideoUrl.includes('3ta3rwsm')) {
+      activeVideoUrl = '/videos/kara_by_rohan.mp4';
+    } else if (activeVideoUrl.includes('savedly.net/f/awhqe998') || activeVideoUrl.includes('awhqe998')) {
+      activeVideoUrl = '/videos/product_rohan.mp4';
+    }
+  }
 
   const handleSaveVideoUrl = (rawUrl: string) => {
     if (!project) return;
@@ -44,7 +52,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
     if (!cleanUrl) return;
 
     let finalUrl = cleanUrl;
-    if (cleanUrl.includes('savedly.net/f/3ta3rwsm') || cleanUrl.includes('savedly.net')) {
+    if (cleanUrl.includes('savedly.net/f/3ta3rwsm') || cleanUrl.includes('3ta3rwsm')) {
+      finalUrl = '/videos/kara_by_rohan.mp4';
+    } else if (cleanUrl.includes('savedly.net/f/awhqe998') || cleanUrl.includes('awhqe998')) {
+      finalUrl = '/videos/product_rohan.mp4';
+    } else if (cleanUrl.includes('savedly.net')) {
       finalUrl = '/videos/kara_by_rohan.mp4';
     } else if (cleanUrl.includes('jumpshare.com/s/Ay6kHCYfGP2s3hW06wJQ')) {
       finalUrl = '/videos/ay6khcyf_video.mp4';
@@ -299,32 +311,34 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               ? 'aspect-[9/16] max-w-sm mx-auto'
               : 'aspect-video w-full'
           }`}>
-            {activeVideoUrl && mediaMode === 'video' && !videoError ? (
+            {activeVideoUrl && mediaMode === 'video' ? (
               <div className="relative w-full h-full group/video">
                 <video
                   ref={videoRef}
                   id="project-hero-video"
                   key={`${project.id}-${activeVideoUrl}`}
                   src={resolveAsset(activeVideoUrl)}
-                  poster={resolveAsset(project.heroImage)}
+                  poster={
+                    activeVideoUrl.includes('kara_by_rohan')
+                      ? resolveAsset('/images/kara_poster.jpg')
+                      : activeVideoUrl.includes('product_rohan')
+                      ? resolveAsset('/images/product_rohan_poster.jpg')
+                      : resolveAsset(project.heroImage)
+                  }
                   controls
                   autoPlay
                   loop
                   muted
                   playsInline
-                  preload="auto"
+                  preload="metadata"
                   onPlay={() => setIsPlaying(true)}
                   onPause={() => setIsPlaying(false)}
                   onVolumeChange={(e) => setIsMuted((e.target as HTMLVideoElement).muted)}
-                  onError={() => setVideoError(true)}
                   onClick={togglePlay}
                   className={`w-full h-full cursor-pointer ${
-                    project.aspectRatio === 'portrait' || project.aspectRatio === 'tall' ? 'object-contain bg-black' : 'object-cover'
+                    project.aspectRatio === 'portrait' || project.aspectRatio === 'tall' ? 'object-cover bg-black' : 'object-cover'
                   }`}
-                >
-                  <source src={resolveAsset(activeVideoUrl)} type="video/mp4" />
-                  Your browser does not support HTML5 video playback.
-                </video>
+                />
 
                 {/* Big Center Play / Pause Click Overlay Indicator when paused */}
                 {!isPlaying && (
@@ -341,17 +355,39 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             ) : (
               <img
                 id="project-hero-media-img"
-                src={resolveAsset(project.heroImage)}
+                src={
+                  activeVideoUrl?.includes('kara_by_rohan')
+                    ? resolveAsset('/images/kara_poster.jpg')
+                    : activeVideoUrl?.includes('product_rohan')
+                    ? resolveAsset('/images/product_rohan_poster.jpg')
+                    : resolveAsset(project.heroImage)
+                }
                 alt={project.title}
                 referrerPolicy="no-referrer"
                 className={`w-full h-full ${
-                  project.aspectRatio === 'portrait' || project.aspectRatio === 'tall' ? 'object-contain bg-black' : 'object-cover'
+                  project.aspectRatio === 'portrait' || project.aspectRatio === 'tall' ? 'object-cover bg-black' : 'object-cover'
                 }`}
               />
             )}
 
+            {/* Viewfinder Reticle & Framing Overlay */}
+            <div className="absolute inset-0 pointer-events-none p-4 flex flex-col justify-between z-10 opacity-70 group-hover:opacity-100 transition-opacity">
+              <div className="flex justify-between items-start font-mono text-[9px] text-white/70">
+                <span className="bg-black/60 backdrop-blur-xs px-2 py-0.5 rounded-xs border border-white/10 uppercase">
+                  {project.aspectRatio === 'tall' || project.aspectRatio === 'portrait' ? '9:16 VERTICAL' : '16:9 DCI'}
+                </span>
+                <span className="bg-black/60 backdrop-blur-xs px-2 py-0.5 rounded-xs text-[#F7A928] border border-[#F7A928]/30">
+                  {activeVideoUrl && mediaMode === 'video' ? '1080P MASTER' : 'STILL FRAME'}
+                </span>
+              </div>
+              <div className="flex justify-between items-end font-mono text-[9px] text-white/60">
+                <span className="bg-black/60 backdrop-blur-xs px-1.5 py-0.5 rounded-xs">RATIO // {project.aspectRatio === 'tall' || project.aspectRatio === 'portrait' ? '9:16' : '16:9'}</span>
+                <span className="bg-black/60 backdrop-blur-xs px-1.5 py-0.5 rounded-xs text-[#F7A928]">KODAK 500T</span>
+              </div>
+            </div>
+
             {/* Quick Unmute / Volume button when playing video */}
-            {activeVideoUrl && mediaMode === 'video' && !videoError && (
+            {activeVideoUrl && mediaMode === 'video' && (
               <button
                 type="button"
                 onClick={toggleMute}
@@ -392,6 +428,18 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                   </button>
                 </div>
               )}
+              <button
+                type="button"
+                onClick={() => {
+                  setIsEditingVideo((prev) => !prev);
+                  setInputVideoUrl(activeVideoUrl || '');
+                }}
+                className="bg-black/85 hover:bg-[#F7A928] hover:text-black backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20 text-[#F7A928] transition-all font-mono text-[10px] font-bold shadow-lg flex items-center gap-1 cursor-pointer"
+                title="Replace video with custom URL"
+              >
+                <Sliders size={11} />
+                <span>REPLACE</span>
+              </button>
               {project.externalUrl && (
                 <a
                   href={project.externalUrl}
@@ -421,6 +469,71 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               </div>
             </div>
           </div>
+
+          {/* Inline Video / Media Replacer Drawer */}
+          {isEditingVideo && (
+            <div className="bg-zinc-950 border border-[#F7A928]/40 rounded-2xl p-4 sm:p-5 shadow-xl animate-in fade-in duration-200">
+              <div className="flex items-center justify-between gap-3 mb-3">
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-xs font-bold text-[#F7A928] uppercase">
+                    REPLACE VIDEO / MEDIA SOURCE
+                  </span>
+                  <span className="font-mono text-[10px] text-white/50">
+                    // ACCEPTS SAVEDLY, JUMPSHARE &amp; DIRECT MP4
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setIsEditingVideo(false)}
+                  className="font-mono text-[10px] text-white/50 hover:text-white px-2 py-0.5 rounded border border-white/10 cursor-pointer"
+                >
+                  CLOSE
+                </button>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 mb-3">
+                <input
+                  type="text"
+                  value={inputVideoUrl}
+                  onChange={(e) => setInputVideoUrl(e.target.value)}
+                  placeholder="Paste URL, e.g. https://savedly.net/f/3ta3rwsm"
+                  className="flex-1 bg-black/80 border border-white/20 focus:border-[#F7A928] rounded-xl px-3.5 py-2 text-xs font-mono text-white placeholder:text-white/40 focus:outline-none"
+                />
+                <button
+                  type="button"
+                  onClick={() => handleSaveVideoUrl(inputVideoUrl)}
+                  className="px-5 py-2 rounded-xl bg-[#F7A928] hover:bg-[#F7A928]/90 text-black font-mono font-bold text-xs uppercase cursor-pointer shrink-0 transition-all"
+                >
+                  APPLY VIDEO
+                </button>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2 font-mono text-[11px]">
+                <span className="text-white/50 text-[10px]">QUICK PRESETS:</span>
+                <button
+                  type="button"
+                  onClick={() => handleSaveVideoUrl('https://savedly.net/f/3ta3rwsm')}
+                  className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-[#F7A928] hover:text-black text-white/90 transition-all cursor-pointer border border-white/15"
+                >
+                  ⚡ savedly.net/f/3ta3rwsm (KARA MP4)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleSaveVideoUrl('https://savedly.net/f/awhqe998')}
+                  className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-[#F7A928] hover:text-black text-white/90 transition-all cursor-pointer border border-white/15"
+                >
+                  ⚡ savedly.net/f/awhqe998 (PRODUCT MP4)
+                </button>
+                <button
+                  type="button"
+                  onClick={handleResetVideo}
+                  className="ml-auto text-red-400 hover:text-red-300 text-[10px] underline cursor-pointer"
+                >
+                  RESET TO PROJECT DEFAULT
+                </button>
+              </div>
+            </div>
+          )}
 
           {/* Project Specs: Role & Software */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6 rounded-2xl bg-white/5 border border-white/10">

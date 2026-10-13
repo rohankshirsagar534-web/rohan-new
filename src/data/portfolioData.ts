@@ -26,47 +26,8 @@ export const PERSONAL_INFO = {
 
 export const PROJECTS: Project[] = [
   {
-    id: 'title-animation',
-    number: '01',
-    title: 'TITLE ANIMATION // KARA',
-    category: 'MOTION',
-    categoryDisplay: 'Motion Graphics / Animation',
-    year: '2025',
-    description: 'Kinetic typography sequence and cinematic title animation exploring brutalist type hierarchy, film grain transitions, and syncopated audio-visual rhythm.',
-    role: 'Art Director & Motion Designer',
-    clientOrContext: 'Independent Film Title Sequence',
-    software: ['After Effects', 'Illustrator', 'Cinema 4D'],
-    thumbnail: '/images/kara_poster.jpg',
-    heroImage: '/images/kara_poster.jpg',
-    // Video URL for TITLE ANIMATION - KARA BY ROHAN from savedly.net:
-    videoUrl: '/videos/kara_by_rohan.mp4',
-    externalUrl: 'https://savedly.net/f/3ta3rwsm',
-    externalUrlLabel: 'SAVEDLY SOURCE',
-    aspectRatio: 'wide',
-    featured: true,
-    creativeProcess: [
-      'Deconstructed classical editorial magazine layouts into modular typography elements.',
-      'Authored custom temporal easing curves in After Effects to deliver sudden impacts with organic settle times.',
-      'Layered 35mm scan grain textures and lens aberration passes for analog warmth.'
-    ],
-    beforeAfter: {
-      labelBefore: 'Raw Layout Sketch',
-      labelAfter: 'Final Motion Composite',
-      imageBefore: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop',
-      imageAfter: '/images/kara_poster.jpg',
-      description: 'Side-by-side progression from typographic wireframe to textured cinematic motion render.'
-    },
-    finalResultText: 'Delivered an energetic 45-second modular motion pack including opening sequence, title cards, lower thirds, and animated social teaser cutdowns.',
-    gallery: [
-      '/images/kara_poster.jpg',
-      '/images/kara_frame_08.jpg',
-      'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?q=80&w=1200&auto=format&fit=crop'
-    ]
-  },
-  {
     id: 'short-ad-film-apex',
-    number: '02',
+    number: '01',
     title: 'SHORT AD FILM // APEX SPEED',
     category: 'SHORT AD FILM',
     categoryDisplay: 'Short Ad Film / Performance Footwear TVC',
@@ -100,7 +61,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'graphic-designing',
-    number: '03',
+    number: '02',
     title: 'GRAPHIC DESIGNING',
     category: 'GRAPHIC DESIGN',
     categoryDisplay: 'Graphic Design / Characters, Products & Props',
@@ -109,9 +70,13 @@ export const PROJECTS: Project[] = [
     role: 'Graphic Designer, Character Concept Artist & Visual Stylist',
     clientOrContext: 'Commercial Brand, Entertainment & Character Design Commissions',
     software: ['Photoshop', 'Illustrator', 'Procreate', 'InDesign'],
-    thumbnail: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop',
-    heroImage: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1600&auto=format&fit=crop',
-    aspectRatio: 'tall',
+    thumbnail: '/images/kara_poster.jpg',
+    heroImage: '/images/kara_poster.jpg',
+    videoUrl: '/videos/kara_by_rohan.mp4',
+    externalUrl: 'https://savedly.net/f/3ta3rwsm',
+    externalUrlLabel: 'SAVEDLY REEL',
+    aspectRatio: 'wide',
+    featured: true,
     creativeProcess: [
       'Developed expressive character silhouette studies and multi-angle turnarounds in Procreate and Photoshop.',
       'Constructed modular 3D product packaging die-lines and bespoke typographic logo lockups in Illustrator.',
@@ -164,7 +129,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'vfx-experiment',
-    number: '04',
+    number: '03',
     title: 'VFX EXPERIMENT',
     category: 'VFX',
     categoryDisplay: 'Visual Effects / Compositing',
@@ -197,7 +162,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: '3d-world',
-    number: '05',
+    number: '04',
     title: '3D WORLD',
     category: '3D',
     categoryDisplay: '3D / Blender / Environment',
@@ -493,9 +458,12 @@ export const PROJECTS: Project[] = [
     role: 'Packaging Graphic Designer & Identity Stylist',
     clientOrContext: 'Direct-to-Consumer Botanical Skincare Brand',
     software: ['Illustrator', 'Photoshop', 'Dimension', 'InDesign'],
-    thumbnail: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=1200&auto=format&fit=crop',
-    heroImage: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=1600&auto=format&fit=crop',
-    aspectRatio: 'square',
+    thumbnail: '/images/product_rohan_poster.jpg',
+    heroImage: '/images/product_rohan_poster.jpg',
+    videoUrl: '/videos/product_rohan.mp4',
+    externalUrl: 'https://savedly.net/f/awhqe998',
+    externalUrlLabel: 'SAVEDLY SOURCE',
+    aspectRatio: 'tall',
     featured: true,
     creativeProcess: [
       'Established a minimalist Swiss typographic system balancing high-contrast serif headers with micro-grotesque ingredients.',

@@ -16,13 +16,13 @@ export const GRAPHIC_DESIGN_REELS: GraphicDesignReel[] = [
   {
     id: 'reel-01',
     number: '01',
-    title: 'Kinetic Poster & Brand Motion Reel',
-    tagline: 'Typographic hierarchy, temporal easing & editorial grid transitions',
+    title: 'Product & Kinetic Brand Motion Reel',
+    tagline: 'Typographic hierarchy, 3D product motion & editorial grid transitions',
     // Replaceable video URL (vertical 9:16 format supported)
-    videoUrl: 'https://cdn.jumpshare.com/preview/vw64keW9QzxrsAm74YyQs_Dthi5alxYlZnuvPy3tAEq_LRC3taoj7CFbgo0TT8e7HRm7REAjDOWkANdLVaXv2DS7jRJUAAIR48_-gQIBfyYGDPk1EGnE7-h4JX7jDLp9Jg6PfL_cIPtxNMFz_CBQaW6yjbN-I2pg_cnoHs_AmgI.mp4',
-    poster: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop',
+    videoUrl: '/videos/product_rohan.mp4',
+    poster: '/images/product_rohan_poster.jpg',
     software: ['Photoshop', 'Illustrator', 'After Effects'],
-    duration: '0:18',
+    duration: '0:11',
     year: '2025'
   },
   {
