@@ -34,17 +34,37 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
   });
   const [isEditingVideo, setIsEditingVideo] = useState<boolean>(false);
   const [inputVideoUrl, setInputVideoUrl] = useState<string>('');
+  const [videoAspect, setVideoAspect] = useState<'tall' | 'wide' | 'square' | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const rawActiveUrl = project ? (customVideoUrls[project.id] || project.videoUrl) : undefined;
   let activeVideoUrl = rawActiveUrl;
   if (activeVideoUrl) {
-    if (activeVideoUrl.includes('savedly.net/f/3ta3rwsm') || activeVideoUrl.includes('3ta3rwsm')) {
+    if (
+      activeVideoUrl.includes('savedly.net/f/2tg8mu6m') ||
+      activeVideoUrl.includes('2tg8mu6m') ||
+      activeVideoUrl.includes('savedly.net/f/gerzn3n2') ||
+      activeVideoUrl.includes('gerzn3n2') ||
+      activeVideoUrl.includes('food_poster_design')
+    ) {
+      activeVideoUrl = '/videos/food_poster_design.mp4';
+    } else if (activeVideoUrl.includes('savedly.net/f/3ta3rwsm') || activeVideoUrl.includes('3ta3rwsm') || activeVideoUrl.includes('kara_by_rohan')) {
       activeVideoUrl = '/videos/kara_by_rohan.mp4';
-    } else if (activeVideoUrl.includes('savedly.net/f/awhqe998') || activeVideoUrl.includes('awhqe998')) {
+    } else if (activeVideoUrl.includes('savedly.net/f/awhqe998') || activeVideoUrl.includes('awhqe998') || activeVideoUrl.includes('product_rohan')) {
       activeVideoUrl = '/videos/product_rohan.mp4';
     }
   }
+
+  const isMediaTall =
+    videoAspect === 'tall' ||
+    activeVideoUrl?.includes('food_poster_design') ||
+    activeVideoUrl?.includes('2tg8mu6m') ||
+    activeVideoUrl?.includes('gerzn3n2') ||
+    activeVideoUrl?.includes('product_rohan') ||
+    activeVideoUrl?.includes('awhqe998') ||
+    activeVideoUrl?.includes('ay6khcyf') ||
+    project?.aspectRatio === 'portrait' ||
+    project?.aspectRatio === 'tall';
 
   const handleSaveVideoUrl = (rawUrl: string) => {
     if (!project) return;
@@ -52,14 +72,26 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
     if (!cleanUrl) return;
 
     let finalUrl = cleanUrl;
-    if (cleanUrl.includes('savedly.net/f/3ta3rwsm') || cleanUrl.includes('3ta3rwsm')) {
+    if (
+      cleanUrl.includes('savedly.net/f/2tg8mu6m') ||
+      cleanUrl.includes('2tg8mu6m') ||
+      cleanUrl.includes('savedly.net/f/gerzn3n2') ||
+      cleanUrl.includes('gerzn3n2')
+    ) {
+      finalUrl = '/videos/food_poster_design.mp4';
+      setVideoAspect('tall');
+    } else if (cleanUrl.includes('savedly.net/f/3ta3rwsm') || cleanUrl.includes('3ta3rwsm')) {
       finalUrl = '/videos/kara_by_rohan.mp4';
+      setVideoAspect('wide');
     } else if (cleanUrl.includes('savedly.net/f/awhqe998') || cleanUrl.includes('awhqe998')) {
       finalUrl = '/videos/product_rohan.mp4';
+      setVideoAspect('tall');
     } else if (cleanUrl.includes('savedly.net')) {
-      finalUrl = '/videos/kara_by_rohan.mp4';
+      finalUrl = '/videos/food_poster_design.mp4';
+      setVideoAspect('tall');
     } else if (cleanUrl.includes('jumpshare.com/s/Ay6kHCYfGP2s3hW06wJQ')) {
       finalUrl = '/videos/ay6khcyf_video.mp4';
+      setVideoAspect('tall');
     }
 
     const updated = { ...customVideoUrls, [project.id]: finalUrl };
@@ -176,6 +208,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
     setIsPlaying(false);
     setIsMuted(true);
     setVideoError(false);
+    setVideoAspect(null);
     setIsEditingVideo(false);
     setInputVideoUrl('');
   }, [project?.id, project?.category]);
@@ -306,22 +339,24 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
           </div>
 
           {/* Hero Media Preview */}
-          <div className={`relative rounded-2xl overflow-hidden bg-zinc-950 border border-white/10 group shadow-2xl ${
-            project.aspectRatio === 'portrait' || project.aspectRatio === 'tall'
+          <div className={`relative rounded-2xl overflow-hidden bg-zinc-950 border border-white/10 group shadow-2xl transition-all duration-300 ${
+            isMediaTall
               ? 'aspect-[9/16] max-w-sm mx-auto'
               : 'aspect-video w-full'
           }`}>
             {activeVideoUrl && mediaMode === 'video' ? (
-              <div className="relative w-full h-full group/video">
+              <div className="relative w-full h-full group/video bg-black flex items-center justify-center">
                 <video
                   ref={videoRef}
                   id="project-hero-video"
                   key={`${project.id}-${activeVideoUrl}`}
                   src={resolveAsset(activeVideoUrl)}
                   poster={
-                    activeVideoUrl.includes('kara_by_rohan')
+                    activeVideoUrl.includes('food_poster_design') || activeVideoUrl.includes('2tg8mu6m') || activeVideoUrl.includes('gerzn3n2')
+                      ? resolveAsset('/images/food_poster_design_poster.jpg')
+                      : activeVideoUrl.includes('kara_by_rohan') || activeVideoUrl.includes('3ta3rwsm')
                       ? resolveAsset('/images/kara_poster.jpg')
-                      : activeVideoUrl.includes('product_rohan')
+                      : activeVideoUrl.includes('product_rohan') || activeVideoUrl.includes('awhqe998')
                       ? resolveAsset('/images/product_rohan_poster.jpg')
                       : resolveAsset(project.heroImage)
                   }
@@ -331,13 +366,20 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                   muted
                   playsInline
                   preload="metadata"
+                  onLoadedMetadata={(e) => {
+                    const v = e.currentTarget;
+                    if (v.videoWidth && v.videoHeight) {
+                      const r = v.videoWidth / v.videoHeight;
+                      if (r < 0.8) setVideoAspect('tall');
+                      else if (r > 1.3) setVideoAspect('wide');
+                      else setVideoAspect('square');
+                    }
+                  }}
                   onPlay={() => setIsPlaying(true)}
                   onPause={() => setIsPlaying(false)}
                   onVolumeChange={(e) => setIsMuted((e.target as HTMLVideoElement).muted)}
                   onClick={togglePlay}
-                  className={`w-full h-full cursor-pointer ${
-                    project.aspectRatio === 'portrait' || project.aspectRatio === 'tall' ? 'object-cover bg-black' : 'object-cover'
-                  }`}
+                  className="w-full h-full cursor-pointer object-contain bg-black"
                 />
 
                 {/* Big Center Play / Pause Click Overlay Indicator when paused */}
@@ -356,16 +398,18 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               <img
                 id="project-hero-media-img"
                 src={
-                  activeVideoUrl?.includes('kara_by_rohan')
+                  activeVideoUrl?.includes('food_poster_design') || activeVideoUrl?.includes('2tg8mu6m') || activeVideoUrl?.includes('gerzn3n2')
+                    ? resolveAsset('/images/food_poster_design_poster.jpg')
+                    : activeVideoUrl?.includes('kara_by_rohan') || activeVideoUrl?.includes('3ta3rwsm')
                     ? resolveAsset('/images/kara_poster.jpg')
-                    : activeVideoUrl?.includes('product_rohan')
+                    : activeVideoUrl?.includes('product_rohan') || activeVideoUrl?.includes('awhqe998')
                     ? resolveAsset('/images/product_rohan_poster.jpg')
                     : resolveAsset(project.heroImage)
                 }
                 alt={project.title}
                 referrerPolicy="no-referrer"
                 className={`w-full h-full ${
-                  project.aspectRatio === 'portrait' || project.aspectRatio === 'tall' ? 'object-cover bg-black' : 'object-cover'
+                  isMediaTall ? 'object-contain bg-black' : 'object-cover'
                 }`}
               />
             )}
@@ -374,10 +418,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             <div className="absolute inset-0 pointer-events-none p-4 flex flex-col justify-between z-10 opacity-70 group-hover:opacity-100 transition-opacity">
               <div className="flex justify-between items-start font-mono text-[9px] text-white/70">
                 <span className="bg-black/60 backdrop-blur-xs px-2 py-0.5 rounded-xs border border-white/10 uppercase">
-                  {project.aspectRatio === 'tall' || project.aspectRatio === 'portrait' ? '9:16 VERTICAL' : '16:9 DCI'}
+                  {isMediaTall ? '9:16 VERTICAL' : '16:9 DCI'}
                 </span>
                 <span className="bg-black/60 backdrop-blur-xs px-2 py-0.5 rounded-xs text-[#F7A928] border border-[#F7A928]/30">
-                  {activeVideoUrl && mediaMode === 'video' ? '1080P MASTER' : 'STILL FRAME'}
+                  {activeVideoUrl && mediaMode === 'video' ? (isMediaTall ? '9:16 MASTER' : '1080P MASTER') : 'STILL FRAME'}
                 </span>
               </div>
               <div className="flex justify-between items-end font-mono text-[9px] text-white/60">
@@ -510,6 +554,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
               <div className="flex flex-wrap items-center gap-2 font-mono text-[11px]">
                 <span className="text-white/50 text-[10px]">QUICK PRESETS:</span>
+                <button
+                  type="button"
+                  onClick={() => handleSaveVideoUrl('https://savedly.net/f/2tg8mu6m')}
+                  className="px-2.5 py-1 rounded-lg bg-[#F7A928]/20 hover:bg-[#F7A928] text-[#F7A928] hover:text-black font-bold transition-all cursor-pointer border border-[#F7A928]/40"
+                >
+                  ⚡ savedly.net/f/2tg8mu6m (FOOD POSTER MP4)
+                </button>
                 <button
                   type="button"
                   onClick={() => handleSaveVideoUrl('https://savedly.net/f/3ta3rwsm')}
