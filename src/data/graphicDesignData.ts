@@ -28,35 +28,35 @@ export const GRAPHIC_DESIGN_REELS: GraphicDesignReel[] = [
   {
     id: 'reel-02',
     number: '02',
-    title: 'High-Impact YouTube Thumbnails & Art',
-    tagline: 'CTR-optimized focal contrast, depth slicing & cinematic lighting',
-    videoUrl: '/videos/ay6khcyf_video.mp4',
-    poster: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=1200&auto=format&fit=crop',
-    software: ['Photoshop', 'Blender', 'Lightroom'],
-    duration: '0:15',
+    title: 'Typography + Graphic Designing',
+    tagline: 'Experimental kinetic typography, editorial layout architecture, poster motion & key visuals',
+    videoUrl: '/videos/typography_graphic_design.mp4',
+    poster: '/images/typography_design_poster.jpg',
+    software: ['Typography', 'After Effects', 'Photoshop', 'Illustrator'],
+    duration: '0:42',
     year: '2025'
   },
   {
     id: 'reel-03',
     number: '03',
-    title: 'Editorial Music & Event Cover Systems',
-    tagline: 'Analog texture blending, brutalist type, and metallic chrome shaders',
-    videoUrl: 'https://cdn.jumpshare.com/preview/JdAHGJn1Rjzh88X44h_7xLUFW4CcPtg1RoZRrOLHqhVIBXN9NcZ6VLN0JVA9HBLi1YUr8RM0srv1S8ZPaLb41JuZRTL0DnifoHfOG-h_t4uTRh6ItsRHy1rNBUrOBb5BQtkEVLt8vPsSAXmho7zmOm6yjbN-I2pg_cnoHs_AmgI.mp4',
-    poster: 'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?q=80&w=1200&auto=format&fit=crop',
-    software: ['Photoshop', 'Cinema 4D', 'Illustrator'],
-    duration: '0:22',
+    title: 'Cinematic Edit & Visual Narrative',
+    tagline: 'High-impact cinematic cut, pacing, atmospheric sound design & color science',
+    videoUrl: '/videos/cinematic_edit_reel.mp4',
+    poster: '/images/cinematic_edit_poster.jpg',
+    software: ['Premiere Pro', 'DaVinci Resolve', 'After Effects'],
+    duration: '1:05',
     year: '2025'
   },
   {
     id: 'reel-04',
     number: '04',
-    title: 'Advertising Campaign & Social Deck',
-    tagline: 'Multi-platform social rollouts, billboard renders & promotional cards',
-    videoUrl: '/assets/diorama_render.mp4',
-    poster: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=1200&auto=format&fit=crop',
-    software: ['Figma', 'Photoshop', 'After Effects'],
-    duration: '0:14',
-    year: '2024'
+    title: '@dietcoke X christmas 🌲',
+    tagline: 'tried making visuals for diet coke in the christmas theme for this season :)',
+    videoUrl: '/videos/dietcoke_christmas.mp4',
+    poster: '/images/dietcoke_christmas_poster.jpg',
+    software: ['Photoshop', 'After Effects', 'Premiere Pro'],
+    duration: '0:21',
+    year: '2025'
   }
 ];
 
@@ -97,14 +97,14 @@ export const GRAPHIC_DESIGN_GALLERY: GraphicDesignGalleryItem[] = [
   },
   {
     id: 'work-ad-01',
-    title: 'Monochrome Tech Apparel Campaign Ad',
+    title: '@dietcoke X christmas 🌲',
     category: 'Advertisements',
-    imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop',
+    imageUrl: '/images/dietcoke_christmas_poster.jpg',
     aspectRatio: 'square',
-    description: 'High-contrast square social advertisement exploring negative space, minimal geometric framing, and bold callouts.',
-    software: ['Figma', 'Photoshop'],
-    year: '2024',
-    client: 'KINETIC Brand Lab'
+    description: 'tried making visuals for diet coke in the christmas theme for this season :) #dietcoke #explore #fyp #graphic #christmas explorepage fypシ cokepaglu',
+    software: ['Photoshop', 'After Effects', 'Illustrator'],
+    year: '2025',
+    client: '@dietcoke Holiday Visual Exploration'
   },
   {
     id: 'work-poster-02',

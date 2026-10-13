@@ -21,10 +21,14 @@ export const Skills: React.FC = () => {
             </div>
             <h2
               id="skills-heading"
+              style={{ fontFamily: 'Arial' }}
               className="font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight uppercase leading-[0.9] text-black"
             >
               WHAT I<br />
-              <span className="text-black inline-flex items-center">
+              <span
+                style={{ backgroundColor: '#ff9b09' }}
+                className="text-black inline-flex items-center"
+              >
                 DO<span className="text-[#F7A928]">.</span>
               </span>
             </h2>
@@ -64,6 +68,7 @@ export const Skills: React.FC = () => {
                       {cat.number}
                     </span>
                     <h3
+                      style={cat.id === 'vfx' ? { fontFamily: 'Arial', fontSize: '52px' } : undefined}
                       className={`font-display font-black text-2xl sm:text-4xl md:text-5xl uppercase tracking-tight transition-transform duration-300 ${
                         isSelected ? 'translate-x-2 text-white' : 'group-hover:translate-x-2'
                       }`}

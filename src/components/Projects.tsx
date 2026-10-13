@@ -5,6 +5,7 @@ import { Project, ProjectCategory } from '../types';
 import { Marquee } from './Marquee';
 import { Animation2DGallery } from './Animation2DGallery';
 import { GraphicDesignShowreel } from './GraphicDesignShowreel';
+import { SketchGallery } from './SketchGallery';
 import { resolveAsset } from '../utils/assets';
 
 interface ProjectsProps {
@@ -18,6 +19,7 @@ const CATEGORIES: ProjectCategory[] = [
   'MOTION',
   '3D',
   'GRAPHIC DESIGN',
+  'SKETCH GALLERY',
   'WEB',
 ];
 
@@ -40,7 +42,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onSelectProject }) => {
       {/* Marquee Banner */}
       <div className="mb-14 sm:mb-20">
         <Marquee
-          items={['SHORT AD FILM', 'VFX', 'MOTION', '3D', 'GRAPHIC DESIGN', 'WEB', 'SHORT AD FILM', 'VFX']}
+          items={['SHORT AD FILM', 'VFX', 'MOTION', '3D', 'SKETCH GALLERY', 'GRAPHIC DESIGN', 'WEB', 'SHORT AD FILM', 'VFX']}
           theme="light"
           speed="fast"
           fontSize="text-4xl sm:text-6xl md:text-8xl"
@@ -59,7 +61,13 @@ export const Projects: React.FC<ProjectsProps> = ({ onSelectProject }) => {
             </div>
             <h2
               id="selected-work-heading"
-              className="font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight uppercase leading-[0.9] text-black"
+              style={{
+                fontFamily: 'Georgia',
+                fontSize: '103px',
+                lineHeight: '87.4px',
+                backgroundColor: '#e6ab47',
+              }}
+              className="font-black tracking-tight uppercase text-black"
             >
               SELECTED<br />
               <span className="text-black inline-flex items-center">
@@ -77,9 +85,9 @@ export const Projects: React.FC<ProjectsProps> = ({ onSelectProject }) => {
         </div>
 
         {/* Interactive Category Filter Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-6 scrollbar-none">
-          <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-black uppercase mr-2 shrink-0">
-            <Filter size={14} className="text-[#F7A928]" />
+        <div className="flex items-center gap-2.5 sm:gap-3 overflow-x-auto pb-4 mb-8 scrollbar-none py-1">
+          <div className="flex items-center gap-2 text-sm sm:text-base font-mono font-bold text-black uppercase mr-2 sm:mr-3 shrink-0">
+            <Filter size={18} className="text-[#F7A928]" />
             <span>FILTER:</span>
           </div>
           {CATEGORIES.map((cat) => {
@@ -97,14 +105,14 @@ export const Projects: React.FC<ProjectsProps> = ({ onSelectProject }) => {
                     setAdFilmSubView('all');
                   }
                 }}
-                className={`text-xs font-mono font-bold px-3.5 py-1.5 rounded-full transition-all duration-200 shrink-0 uppercase tracking-wider cursor-pointer ${
+                className={`text-sm sm:text-base font-mono font-bold px-5 py-2.5 sm:px-6 sm:py-3 rounded-full transition-all duration-200 shrink-0 uppercase tracking-wider cursor-pointer ${
                   isActive
-                    ? 'bg-black text-[#F7A928] shadow-sm'
+                    ? 'bg-black text-[#F7A928] shadow-md ring-1 ring-black'
                     : 'bg-white border border-black/15 text-black hover:border-black hover:bg-black/5'
                 }`}
               >
                 <span>{displayLabel}</span>
-                <span className={`ml-1.5 text-[10px] ${isActive ? 'text-[#F7A928]/80' : 'text-black/50'}`}>
+                <span className={`ml-2 text-xs sm:text-sm ${isActive ? 'text-[#F7A928]/90 font-bold' : 'text-black/50 font-semibold'}`}>
                   ({count})
                 </span>
               </button>
@@ -199,15 +207,36 @@ export const Projects: React.FC<ProjectsProps> = ({ onSelectProject }) => {
                   onClick={() => onSelectProject(project)}
                   className={`${colSpan} group relative bg-white rounded-3xl sm:rounded-[28px] border border-black/10 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 cursor-pointer flex flex-col justify-between`}
                 >
-                  {/* Image Container with Film Grain & Zoom */}
+                  {/* Image Container with Film Grain & Zoom & Video Preview */}
                   <div className="relative w-full aspect-[16/10] overflow-hidden bg-black">
-                    <img
-                      src={resolveAsset(project.thumbnail)}
-                      alt={project.title}
-                      loading="lazy"
-                      className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-[1.03] transition-transform duration-700 ease-out"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    {project.videoUrl ? (
+                      <video
+                        src={resolveAsset(project.videoUrl)}
+                        poster={resolveAsset(project.thumbnail)}
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                        onMouseEnter={(e) => {
+                          const v = e.currentTarget;
+                          v.play().catch(() => {});
+                        }}
+                        onMouseLeave={(e) => {
+                          const v = e.currentTarget;
+                          v.pause();
+                          v.currentTime = 0;
+                        }}
+                        className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-[1.03] group-hover:grayscale-0 transition-all duration-700 ease-out"
+                      />
+                    ) : (
+                      <img
+                        src={resolveAsset(project.thumbnail)}
+                        alt={project.title}
+                        loading="lazy"
+                        className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
 
                     {/* Top Badges */}
                     <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
@@ -288,6 +317,10 @@ export const Projects: React.FC<ProjectsProps> = ({ onSelectProject }) => {
           <GraphicDesignShowreel />
         )}
 
+        {/* 4. Dedicated Sketch Gallery & Analog Vault: Raw Gesture, TVC Storyboards, Inks & Lighting Studies */}
+        {(selectedCategory === 'ALL' || selectedCategory === 'SKETCH GALLERY') && (
+          <SketchGallery />
+        )}
       </div>
     </section>
   );

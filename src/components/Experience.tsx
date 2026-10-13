@@ -23,6 +23,7 @@ export const Experience: React.FC<ExperienceProps> = ({ onItemClick }) => {
             </div>
             <h2
               id="experience-heading"
+              style={{ fontFamily: 'Syne' }}
               className="font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight uppercase leading-[0.9] text-black"
             >
               CREATIVE<br />

@@ -11,11 +11,18 @@ interface ProjectModalProps {
 }
 
 export const ProjectModal: React.FC<ProjectModalProps> = ({
-  project,
+  project: initialProject,
   projects,
   onClose,
   onSelectProject,
 }) => {
+  const project = initialProject
+    ? projects.find(
+        (p) =>
+          p.id === initialProject.id ||
+          (initialProject.id === '3d-mecha-frame' && p.id === '3d-character-modeling')
+      ) || initialProject
+    : null;
   const [sliderPos, setSliderPos] = useState<number>(50);
   const [mediaMode, setMediaMode] = useState<'video' | 'still'>('video');
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
@@ -41,6 +48,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
   let activeVideoUrl = rawActiveUrl;
   if (activeVideoUrl) {
     if (
+      activeVideoUrl.includes('savedly.net/f/thuvzfwu') ||
+      activeVideoUrl.includes('thuvzfwu') ||
+      activeVideoUrl.includes('fevicol_matrimony')
+    ) {
+      activeVideoUrl = '/videos/fevicol_matrimony.mp4';
+    } else if (
       activeVideoUrl.includes('savedly.net/f/2tg8mu6m') ||
       activeVideoUrl.includes('2tg8mu6m') ||
       activeVideoUrl.includes('savedly.net/f/gerzn3n2') ||
@@ -52,19 +65,45 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
       activeVideoUrl = '/videos/kara_by_rohan.mp4';
     } else if (activeVideoUrl.includes('savedly.net/f/awhqe998') || activeVideoUrl.includes('awhqe998') || activeVideoUrl.includes('product_rohan')) {
       activeVideoUrl = '/videos/product_rohan.mp4';
+    } else if (activeVideoUrl.includes('savedly.net/f/qh3puax8') || activeVideoUrl.includes('qh3puax8') || activeVideoUrl.includes('dietcoke_christmas')) {
+      activeVideoUrl = '/videos/dietcoke_christmas.mp4';
+    } else if (activeVideoUrl.includes('savedly.net/f/kd46rzq7') || activeVideoUrl.includes('kd46rzq7') || activeVideoUrl.includes('typography_graphic_design')) {
+      activeVideoUrl = '/videos/typography_graphic_design.mp4';
+    } else if (activeVideoUrl.includes('savedly.net/f/y2dkzsgc') || activeVideoUrl.includes('y2dkzsgc') || activeVideoUrl.includes('jeep_3d_model')) {
+      activeVideoUrl = '/videos/jeep_3d_model.mp4';
+    } else if (
+      activeVideoUrl.includes('savedly.net/f/y86c6cz9') ||
+      activeVideoUrl.includes('y86c6cz9') ||
+      activeVideoUrl.includes('3d_character_modeling') ||
+      activeVideoUrl.includes('cr.mp4')
+    ) {
+      activeVideoUrl = '/videos/3d_character_modeling.mp4';
+    } else if (
+      activeVideoUrl.includes('savedly.net/f/umye7g83') ||
+      activeVideoUrl.includes('umye7g83') ||
+      activeVideoUrl.includes('nuke_vfx_compositing') ||
+      activeVideoUrl.includes('rohan_showreel')
+    ) {
+      activeVideoUrl = '/videos/nuke_vfx_compositing.mp4';
     }
   }
 
   const isMediaTall =
     videoAspect === 'tall' ||
-    activeVideoUrl?.includes('food_poster_design') ||
-    activeVideoUrl?.includes('2tg8mu6m') ||
-    activeVideoUrl?.includes('gerzn3n2') ||
-    activeVideoUrl?.includes('product_rohan') ||
-    activeVideoUrl?.includes('awhqe998') ||
-    activeVideoUrl?.includes('ay6khcyf') ||
-    project?.aspectRatio === 'portrait' ||
-    project?.aspectRatio === 'tall';
+    (videoAspect !== 'wide' && (
+      activeVideoUrl?.includes('food_poster_design') ||
+      activeVideoUrl?.includes('2tg8mu6m') ||
+      activeVideoUrl?.includes('gerzn3n2') ||
+      activeVideoUrl?.includes('product_rohan') ||
+      activeVideoUrl?.includes('awhqe998') ||
+      activeVideoUrl?.includes('dietcoke_christmas') ||
+      activeVideoUrl?.includes('qh3puax8') ||
+      activeVideoUrl?.includes('kd46rzq7') ||
+      activeVideoUrl?.includes('typography_graphic_design') ||
+      activeVideoUrl?.includes('ay6khcyf') ||
+      project?.aspectRatio === 'portrait' ||
+      project?.aspectRatio === 'tall'
+    ));
 
   const handleSaveVideoUrl = (rawUrl: string) => {
     if (!project) return;
@@ -73,6 +112,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
     let finalUrl = cleanUrl;
     if (
+      cleanUrl.includes('savedly.net/f/thuvzfwu') ||
+      cleanUrl.includes('thuvzfwu')
+    ) {
+      finalUrl = '/videos/fevicol_matrimony.mp4';
+      setVideoAspect('wide');
+    } else if (
       cleanUrl.includes('savedly.net/f/2tg8mu6m') ||
       cleanUrl.includes('2tg8mu6m') ||
       cleanUrl.includes('savedly.net/f/gerzn3n2') ||
@@ -86,11 +131,34 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
     } else if (cleanUrl.includes('savedly.net/f/awhqe998') || cleanUrl.includes('awhqe998')) {
       finalUrl = '/videos/product_rohan.mp4';
       setVideoAspect('tall');
-    } else if (cleanUrl.includes('savedly.net')) {
-      finalUrl = '/videos/food_poster_design.mp4';
+    } else if (cleanUrl.includes('savedly.net/f/qh3puax8') || cleanUrl.includes('qh3puax8')) {
+      finalUrl = '/videos/dietcoke_christmas.mp4';
       setVideoAspect('tall');
+    } else if (cleanUrl.includes('savedly.net/f/kd46rzq7') || cleanUrl.includes('kd46rzq7')) {
+      finalUrl = '/videos/typography_graphic_design.mp4';
+      setVideoAspect('tall');
+    } else if (cleanUrl.includes('savedly.net/f/y2dkzsgc') || cleanUrl.includes('y2dkzsgc') || cleanUrl.includes('jeep_3d_model')) {
+      finalUrl = '/videos/jeep_3d_model.mp4';
+      setVideoAspect('wide');
+    } else if (
+      cleanUrl.includes('savedly.net/f/y86c6cz9') ||
+      cleanUrl.includes('y86c6cz9') ||
+      cleanUrl.includes('3d_character_modeling')
+    ) {
+      finalUrl = '/videos/3d_character_modeling.mp4';
+      setVideoAspect('wide');
+    } else if (
+      cleanUrl.includes('savedly.net/f/umye7g83') ||
+      cleanUrl.includes('umye7g83') ||
+      cleanUrl.includes('nuke_vfx_compositing')
+    ) {
+      finalUrl = '/videos/nuke_vfx_compositing.mp4';
+      setVideoAspect('wide');
     } else if (cleanUrl.includes('jumpshare.com/s/Ay6kHCYfGP2s3hW06wJQ')) {
       finalUrl = '/videos/ay6khcyf_video.mp4';
+      setVideoAspect('tall');
+    } else if (cleanUrl.includes('savedly.net')) {
+      finalUrl = '/videos/food_poster_design.mp4';
       setVideoAspect('tall');
     }
 
@@ -398,12 +466,22 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               <img
                 id="project-hero-media-img"
                 src={
-                  activeVideoUrl?.includes('food_poster_design') || activeVideoUrl?.includes('2tg8mu6m') || activeVideoUrl?.includes('gerzn3n2')
+                  activeVideoUrl?.includes('kd46rzq7') || activeVideoUrl?.includes('typography_graphic_design')
+                    ? resolveAsset('/images/typography_design_poster.jpg')
+                    : activeVideoUrl?.includes('dietcoke_christmas') || activeVideoUrl?.includes('qh3puax8')
+                    ? resolveAsset('/images/dietcoke_christmas_poster.jpg')
+                    : activeVideoUrl?.includes('food_poster_design') || activeVideoUrl?.includes('2tg8mu6m') || activeVideoUrl?.includes('gerzn3n2')
                     ? resolveAsset('/images/food_poster_design_poster.jpg')
                     : activeVideoUrl?.includes('kara_by_rohan') || activeVideoUrl?.includes('3ta3rwsm')
                     ? resolveAsset('/images/kara_poster.jpg')
                     : activeVideoUrl?.includes('product_rohan') || activeVideoUrl?.includes('awhqe998')
                     ? resolveAsset('/images/product_rohan_poster.jpg')
+                    : activeVideoUrl?.includes('jeep_3d_model') || activeVideoUrl?.includes('y2dkzsgc')
+                    ? resolveAsset('/images/jeep_3d_model_poster.jpg')
+                    : activeVideoUrl?.includes('3d_character_modeling') || activeVideoUrl?.includes('y86c6cz9')
+                    ? resolveAsset('/images/3d_character_modeling_poster.jpg')
+                    : activeVideoUrl?.includes('nuke_vfx_compositing') || activeVideoUrl?.includes('umye7g83')
+                    ? resolveAsset('/images/nuke_vfx_compositing_poster.jpg')
                     : resolveAsset(project.heroImage)
                 }
                 alt={project.title}
@@ -556,8 +634,15 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                 <span className="text-white/50 text-[10px]">QUICK PRESETS:</span>
                 <button
                   type="button"
-                  onClick={() => handleSaveVideoUrl('https://savedly.net/f/2tg8mu6m')}
+                  onClick={() => handleSaveVideoUrl('https://savedly.net/f/thuvzfwu')}
                   className="px-2.5 py-1 rounded-lg bg-[#F7A928]/20 hover:bg-[#F7A928] text-[#F7A928] hover:text-black font-bold transition-all cursor-pointer border border-[#F7A928]/40"
+                >
+                  ⚡ savedly.net/f/thuvzfwu (FEVICOL MATRIMONY MP4)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleSaveVideoUrl('https://savedly.net/f/2tg8mu6m')}
+                  className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-[#F7A928] hover:text-black text-white/90 transition-all cursor-pointer border border-white/15"
                 >
                   ⚡ savedly.net/f/2tg8mu6m (FOOD POSTER MP4)
                 </button>
@@ -574,6 +659,41 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                   className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-[#F7A928] hover:text-black text-white/90 transition-all cursor-pointer border border-white/15"
                 >
                   ⚡ savedly.net/f/awhqe998 (PRODUCT MP4)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleSaveVideoUrl('https://savedly.net/f/qh3puax8')}
+                  className="px-2.5 py-1 rounded-lg bg-[#F7A928]/20 hover:bg-[#F7A928] text-[#F7A928] hover:text-black font-bold transition-all cursor-pointer border border-[#F7A928]/40"
+                >
+                  ⚡ savedly.net/f/qh3puax8 (@DIETCOKE X CHRISTMAS)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleSaveVideoUrl('https://savedly.net/f/kd46rzq7')}
+                  className="px-2.5 py-1 rounded-lg bg-[#F7A928]/20 hover:bg-[#F7A928] text-[#F7A928] hover:text-black font-bold transition-all cursor-pointer border border-[#F7A928]/40"
+                >
+                  ⚡ savedly.net/f/kd46rzq7 (TYPOGRAPHY + GRAPHIC DESIGN)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleSaveVideoUrl('https://savedly.net/f/y2dkzsgc')}
+                  className="px-2.5 py-1 rounded-lg bg-[#F7A928]/20 hover:bg-[#F7A928] text-[#F7A928] hover:text-black font-bold transition-all cursor-pointer border border-[#F7A928]/40"
+                >
+                  ⚡ savedly.net/f/y2dkzsgc (JEEP 3D MODEL)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleSaveVideoUrl('https://savedly.net/f/y86c6cz9')}
+                  className="px-2.5 py-1 rounded-lg bg-[#F7A928]/20 hover:bg-[#F7A928] text-[#F7A928] hover:text-black font-bold transition-all cursor-pointer border border-[#F7A928]/40"
+                >
+                  ⚡ savedly.net/f/y86c6cz9 (3D CHARACTER MODELING)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleSaveVideoUrl('https://savedly.net/f/umye7g83')}
+                  className="px-2.5 py-1 rounded-lg bg-[#F7A928]/20 hover:bg-[#F7A928] text-[#F7A928] hover:text-black font-bold transition-all cursor-pointer border border-[#F7A928]/40"
+                >
+                  ⚡ savedly.net/f/umye7g83 (NUKE VFX COMPOSITING)
                 </button>
                 <button
                   type="button"
@@ -641,7 +761,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/15 select-none bg-black">
                 {/* After Image (Background) */}
                 <img
-                  src={project.beforeAfter.imageAfter}
+                  src={resolveAsset(project.beforeAfter.imageAfter)}
                   alt={project.beforeAfter.labelAfter}
                   referrerPolicy="no-referrer"
                   className="absolute inset-0 w-full h-full object-cover"
@@ -656,7 +776,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                   style={{ width: `${sliderPos}%` }}
                 >
                   <img
-                    src={project.beforeAfter.imageBefore}
+                    src={resolveAsset(project.beforeAfter.imageBefore)}
                     alt={project.beforeAfter.labelBefore}
                     referrerPolicy="no-referrer"
                     className="absolute inset-0 w-full h-full object-cover max-w-none"
@@ -780,7 +900,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                     >
                       <img
                         id={`project-gallery-img-${gIdx}`}
-                        src={imgUrl}
+                        src={resolveAsset(imgUrl)}
                         alt={`${project.title} asset ${gIdx + 1}`}
                         referrerPolicy="no-referrer"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -805,7 +925,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               <div className="flex items-center gap-2">
                 <PenTool size={18} className="text-[#F7A928]" />
                 <h3 className="font-display font-bold text-lg uppercase tracking-wider text-white">
-                  GRAPHIC DESIGN DISCIPLINES // CHARACTER, PRODUCT &amp; PROPS
+                  GRAPHIC DESIGN DISCIPLINES // CHARACTER &amp; PRODUCT DESIGN
                 </h3>
               </div>
 
@@ -886,7 +1006,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                     >
                       <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-black border border-white/10">
                         <img
-                          src={p.thumbnail}
+                          src={resolveAsset(p.thumbnail)}
                           alt={p.title}
                           referrerPolicy="no-referrer"
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"

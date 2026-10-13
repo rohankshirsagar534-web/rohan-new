@@ -92,7 +92,10 @@ export const GraphicDesignShowreel: React.FC = () => {
             <span className="text-[#F7A928] font-bold">[ 03.B ]</span>
             <span>SHOWCASE ARCHIVE</span>
           </div>
-          <h2 className="font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight uppercase leading-[0.9] text-black">
+          <h2
+            style={{ fontFamily: 'Times New Roman' }}
+            className="font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight uppercase leading-[0.9] text-black"
+          >
             GRAPHIC DESIGN<br />
             <span className="text-black inline-flex items-center">
               SHOWREEL<span className="text-[#F7A928]">.</span>
@@ -116,11 +119,17 @@ export const GraphicDesignShowreel: React.FC = () => {
         {/* Subheader */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-8 border-b border-black/10 gap-3">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-black text-[#F7A928] flex items-center justify-center font-mono text-xs font-bold">
+            <div
+              style={{ width: '45px', height: '49px', fontSize: '32px' }}
+              className="w-8 h-8 rounded-lg bg-black text-[#F7A928] flex items-center justify-center font-mono text-xs font-bold"
+            >
               01
             </div>
             <div>
-              <h3 className="font-display font-black text-xl sm:text-2xl uppercase tracking-tight text-black">
+              <h3
+                style={{ fontSize: '27px', lineHeight: '39px' }}
+                className="font-display font-black text-xl sm:text-2xl uppercase tracking-tight text-black"
+              >
                 VERTICAL REELS SHOWCASE
               </h3>
               <p className="text-xs font-mono text-[#666666]">
@@ -153,8 +162,8 @@ export const GraphicDesignShowreel: React.FC = () => {
                   {/* HTML5 Video with replaceable videoUrl */}
                   <video
                     ref={(el) => { videoRefs.current[reel.id] = el; }}
-                    src={resolveAsset(reel.videoUrl)}
-                    poster={resolveAsset(reel.poster)}
+                    src={reel.videoUrl.includes('kd46rzq7') || reel.videoUrl.includes('typography_graphic_design') ? resolveAsset('/videos/typography_graphic_design.mp4') : resolveAsset(reel.videoUrl)}
+                    poster={reel.videoUrl.includes('kd46rzq7') || reel.videoUrl.includes('typography_graphic_design') ? resolveAsset('/images/typography_design_poster.jpg') : resolveAsset(reel.poster)}
                     loop
                     playsInline
                     controls={isPlaying}
@@ -166,7 +175,10 @@ export const GraphicDesignShowreel: React.FC = () => {
                       if (playingReelId === reel.id) setPlayingReelId(null);
                     }}
                   >
-                    <source src={resolveAsset(reel.videoUrl)} type="video/mp4" />
+                    <source 
+                      src={reel.videoUrl.includes('kd46rzq7') || reel.videoUrl.includes('typography_graphic_design') ? resolveAsset('/videos/typography_graphic_design.mp4') : resolveAsset(reel.videoUrl)} 
+                      type="video/mp4" 
+                    />
                   </video>
 
                   {/* Gradient vignettes */}
@@ -222,8 +234,8 @@ export const GraphicDesignShowreel: React.FC = () => {
                 </div>
 
                 {/* Card Lower Controls & Software Tags */}
-                <div className="p-5 sm:p-6 bg-[#121212] flex flex-col justify-between gap-4 border-t border-white/10">
-                  <div className="flex items-center justify-between">
+                <div className="p-5 sm:p-6 bg-[#121212] flex flex-col justify-between gap-3 border-t border-white/10">
+                  <div className="flex items-center justify-between gap-2">
                     <div className="flex flex-wrap items-center gap-1.5">
                       {reel.software.map((sw, sIdx) => (
                         <span
@@ -253,6 +265,16 @@ export const GraphicDesignShowreel: React.FC = () => {
                       )}
                     </button>
                   </div>
+
+                  {/* Additional Context & Typography / Graphic Design Metadata */}
+                  <div className="flex items-center justify-between text-[11px] font-mono pt-2 border-t border-white/10">
+                    <span className="text-[#F7A928] font-bold uppercase tracking-wider truncate max-w-[200px] sm:max-w-[240px]">
+                      {reel.title}
+                    </span>
+                    <span className="text-white/40 uppercase shrink-0">
+                      {reel.duration || '9:16'} // 1080P
+                    </span>
+                  </div>
                 </div>
               </div>
             );
@@ -267,11 +289,17 @@ export const GraphicDesignShowreel: React.FC = () => {
         {/* Subheader & Filter Tabs */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between pb-6 mb-8 border-b border-black/10 gap-6">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-black text-[#F7A928] flex items-center justify-center font-mono text-xs font-bold">
+            <div
+              style={{ width: '44px', height: '53px', fontSize: '28px' }}
+              className="w-8 h-8 rounded-lg bg-black text-[#F7A928] flex items-center justify-center font-mono text-xs font-bold"
+            >
               02
             </div>
             <div>
-              <h3 className="font-display font-black text-2xl sm:text-3xl md:text-4xl uppercase tracking-tight text-black">
+              <h3
+                style={{ fontFamily: 'Verdana', fontSize: '46px' }}
+                className="font-display font-black text-2xl sm:text-3xl md:text-4xl uppercase tracking-tight text-black"
+              >
                 SELECTED GRAPHIC WORK
               </h3>
               <p className="text-xs font-mono text-[#666666]">
@@ -386,7 +414,10 @@ export const GraphicDesignShowreel: React.FC = () => {
               03
             </div>
             <div>
-              <h3 className="font-display font-black text-2xl sm:text-3xl md:text-4xl uppercase tracking-tight text-black">
+              <h3
+                style={{ fontSize: '40px', lineHeight: '66px' }}
+                className="font-display font-black text-2xl sm:text-3xl md:text-4xl uppercase tracking-tight text-black"
+              >
                 BEHIND THE PROCESS
               </h3>
               <p className="text-xs font-mono text-[#666666]">
@@ -434,7 +465,10 @@ export const GraphicDesignShowreel: React.FC = () => {
                 <span>•</span>
                 <span>{activeProcess.subtitle}</span>
               </div>
-              <h4 className="font-display font-black text-2xl sm:text-3xl uppercase text-white">
+              <h4
+                style={{ fontFamily: 'Times New Roman' }}
+                className="font-display font-black text-2xl sm:text-3xl uppercase text-white"
+              >
                 {activeProcess.title}
               </h4>
             </div>

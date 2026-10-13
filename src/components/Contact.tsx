@@ -90,7 +90,12 @@ export const Contact: React.FC = () => {
               >
                 LET'S<br />
                 MAKE<br />
-                <span className="text-[#F7A928]">SOMETHING.</span>
+                <span
+                  style={{ fontFamily: 'Georgia', fontSize: '64px' }}
+                  className="text-[#F7A928]"
+                >
+                  SOMETHING.
+                </span>
               </h2>
 
               <p className="text-base sm:text-lg text-white/75 font-normal leading-relaxed max-w-lg mb-10">

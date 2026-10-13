@@ -5,6 +5,7 @@ export type ProjectCategory =
   | 'MOTION'
   | '3D'
   | 'GRAPHIC DESIGN'
+  | 'SKETCH GALLERY'
   | 'WEB';
 
 export interface Project {
@@ -133,4 +134,17 @@ export interface GraphicDesignProcessItem {
   afterImage: string;
   description: string;
   software: string[];
+}
+
+export interface SketchItem {
+  id: string;
+  title: string;
+  category: 'Character & Gestures' | 'Storyboard Thumbnails' | 'Environment Studies' | 'Ink & Concept';
+  medium: string;
+  year: string;
+  imageUrl: string;
+  roughSketchUrl?: string;
+  description: string;
+  aspect: 'portrait' | 'landscape' | 'square';
+  tags: string[];
 }

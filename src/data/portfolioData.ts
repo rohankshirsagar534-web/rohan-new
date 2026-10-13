@@ -111,54 +111,44 @@ export const PROJECTS: Project[] = [
         subtitle: 'Structural Box & Bottle Label System',
         imageUrl: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=1200&auto=format&fit=crop',
         description: 'Sustainable luxury cosmetics packaging system with custom typographic lockups, tactile emboss zones, and spot-UV foil varnish.'
-      },
-      {
-        type: 'PROPS DESIGN',
-        title: 'Sci-Fi Tactical Field Gear',
-        subtitle: 'Hard-Surface Equipment Schematics',
-        imageUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop',
-        description: 'Function-first utility props featuring modular battery canisters, carbon-fiber grips, LED status HUD dials, and exploded assembly diagrams.'
-      },
-      {
-        type: 'EDITORIAL',
-        title: 'Swiss Grid Brand Poster Series',
-        subtitle: 'Typographic Hierarchy & Print System',
-        imageUrl: 'https://images.unsplash.com/photo-1542744094-24638eff58bb?q=80&w=1200&auto=format&fit=crop',
-        description: 'Brutalist print campaign crafted on a rigid 16-column grid with deliberate negative space breathing zones.'
       }
     ]
   },
   {
     id: 'vfx-experiment',
     number: '03',
-    title: 'VFX EXPERIMENT',
+    title: 'VFX COMPOSITING // NUKE ROTO & TRACKING',
     category: 'VFX',
-    categoryDisplay: 'Visual Effects / Compositing',
+    categoryDisplay: 'VFX / Nuke Compositing, Roto & Planar Tracking',
     year: '2025',
-    description: 'Clean plate reconstruction, planar motion tracking, green screen keying, and seamless CG element integration with realistic grain matching and optical flares.',
-    role: 'Compositor & VFX Artist',
-    clientOrContext: 'VFX Lab Study & Compositing Reel',
-    software: ['After Effects', 'Nuke Principles', 'Mocha Pro', 'Blender'],
-    thumbnail: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1200&auto=format&fit=crop',
-    heroImage: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1600&auto=format&fit=crop',
+    description: 'Professional node-based visual effects compositing in The Foundry Nuke. Planar motion tracking, FrameHold clean plates, multi-layer rotoscoping, edge blur feathering, and grain-matched write outputs.',
+    role: 'Nuke Compositor, Roto & Planar Tracking Artist',
+    clientOrContext: 'VFX Production Pipeline & Feature Compositing Reel',
+    software: ['Nuke', 'Mocha Pro', 'After Effects', 'Silhouette', 'Premiere Pro'],
+    thumbnail: '/images/nuke_vfx_compositing_poster.jpg',
+    heroImage: '/images/nuke_vfx_compositing_poster.jpg',
+    videoUrl: '/videos/nuke_vfx_compositing.mp4',
+    externalUrl: 'https://savedly.net/f/umye7g83',
+    externalUrlLabel: 'WATCH SAVEDLY REEL',
     aspectRatio: 'wide',
     featured: true,
     creativeProcess: [
-      'Multi-pass rotoscoping and hair edge preservation using advanced differential mattes.',
-      'Camera solve in Mocha to extract accurate parallax motion and focal length parameters.',
-      'Depth-map fog integration, light wrap simulation, and digital gate weave application.'
+      'Constructed a multi-branch node graph in Nuke with dual FrameHold clean plates and planar tracker coordinates.',
+      'Executed precision multi-layer rotoscoping and edge blur passes with custom alpha masks for seamless integration.',
+      'Assembled multi-merge composites with realistic motion blur, grain synthesis, and high-bitrate write outputs.'
     ],
     beforeAfter: {
-      labelBefore: 'Raw Chroma Studio Plate',
-      labelAfter: 'Finished CGI Composite',
-      imageBefore: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop',
-      imageAfter: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1200&auto=format&fit=crop',
-      description: 'Photorealistic integration of digital environment geometry behind live-action tracked talent.'
+      labelBefore: 'Nuke Node Graph & Roto/Track Pipes',
+      labelAfter: 'Final Composited Master',
+      imageBefore: '/images/nuke_node_graph.png',
+      imageAfter: '/images/nuke_vfx_compositing_poster.jpg',
+      description: 'The Foundry Nuke node network connecting FrameHold clean plates, RotoPaint channels, Tracker transforms, and final output writes.'
     },
-    finalResultText: 'Achieved complete photorealistic suspension of disbelief with matched camera sensor grain and chromatic dispersion.',
+    finalResultText: 'Industry-standard VFX compositing shot featuring seamless roto, clean plate patching, robust planar tracking, and photorealistic optical integration.',
     gallery: [
-      'https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=1200&auto=format&fit=crop'
+      '/images/nuke_vfx_compositing_poster.jpg',
+      '/images/nuke_node_graph.png',
+      '/images/nuke_vfx_compositing_frame14.jpg'
     ]
   },
   {
@@ -188,41 +178,46 @@ export const PROJECTS: Project[] = [
     ]
   },
   {
-    id: '3d-mecha-frame',
-    number: '07',
-    title: '3D CYBER MECHA FRAME',
+    id: '3d-character-modeling',
+    number: '05',
+    title: '3D CHARACTER MODELING',
     category: '3D',
-    categoryDisplay: '3D Hard-Surface / Mechanical Concept',
+    categoryDisplay: '3D Character / Topology & Turntable',
     year: '2025',
-    description: 'Complex hard-surface cybernetic mecha study exploring mechanical articulation, hydraulic joints, procedural carbon fiber & anodized titanium shaders, and cinematic macro depth-of-field passes.',
-    role: '3D Hard-Surface Artist & LookDev',
-    clientOrContext: 'Sci-Fi Concept & Mechanical Asset R&D',
-    software: ['Blender 4.2', 'Substance Painter', 'ZBrush', 'Cycles'],
-    thumbnail: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop',
-    heroImage: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1600&auto=format&fit=crop',
+    description: 'Stylized 3D character modeling study featuring clean subdivision surface quad topology, anatomical edge loops, deformation-ready joint geometry, and a 360-degree turntable viewport presentation.',
+    role: '3D Character Modeler & Topology Artist',
+    clientOrContext: 'Character Concept & 3D Modeling Study',
+    software: ['Blender 4.2', 'ZBrush', 'Substance 3D Painter', 'Cycles'],
+    thumbnail: '/images/3d_character_modeling_poster.jpg',
+    heroImage: '/images/3d_character_modeling_poster.jpg',
+    videoUrl: '/videos/3d_character_modeling.mp4',
+    externalUrl: 'https://savedly.net/f/y86c6cz9',
+    externalUrlLabel: 'WATCH SAVEDLY VIDEO',
     aspectRatio: 'wide',
     featured: true,
     creativeProcess: [
-      'Drafted 2D structural schematics before roughing primary polygonal silhouette blocks in Blender.',
-      'Engineered articulated ball-joint pivots and hydraulic pistons with realistic mechanical clearance.',
-      'Baked 8K normal and ambient occlusion maps; layered micro-scratches and edge-wear in Substance 3D Painter.'
+      'Sculpted base character proportions, gestural anatomy silhouettes, and head planes in Blender and ZBrush.',
+      'Retopologized clean full-body quad topology with circular edge loops around joints and facial features for deformation readiness.',
+      'Captured high-bitrate 360-degree viewport turntable presentation verifying silhouette stability, edge flow, and lighting response.'
     ],
     beforeAfter: {
-      labelBefore: 'Clay Topology Pass',
-      labelAfter: 'Final PBR Lit Render',
-      imageBefore: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1200&auto=format&fit=crop',
-      imageAfter: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop',
-      description: 'Subdivision surface geometry inspection transitioning to multi-light raytraced metallic composition.'
+      labelBefore: 'Topology & Wireframe Pass',
+      labelAfter: '360° Turntable Render',
+      imageBefore: '/images/3d_character_wireframe_before.jpg',
+      imageAfter: '/images/3d_character_modeling_poster.jpg',
+      description: 'Subdivision surface quad topology inspection transitioning to full 360-degree viewport character turnaround render.'
     },
-    finalResultText: 'Complete production-ready 3D mechanical asset with 4K texture sets, turnkey rigging, and cinematic turntable presentation.',
+    finalResultText: 'Complete production-ready 3D character model featuring clean quad topology, anatomical proportions, and 360-degree turntable presentation.',
     gallery: [
-      'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=1200&auto=format&fit=crop'
+      '/images/3d_character_modeling_poster.jpg',
+      '/images/3d_character_wireframe_before.jpg',
+      '/images/3d_character_modeling_frame6.jpg',
+      '/images/3d_character_modeling_frame10.jpg'
     ]
   },
   {
     id: '3d-procedural-monolith',
-    number: '08',
+    number: '06',
     title: '3D PROCEDURAL SCULPTURE',
     category: '3D',
     categoryDisplay: '3D Generative Simulation & Lighting',
@@ -255,39 +250,42 @@ export const PROJECTS: Project[] = [
   },
   {
     id: '3d-automotive-concept',
-    number: '09',
-    title: '3D AUTOMOTIVE STUDIO',
+    number: '07',
+    title: '3D JEEP MODEL // OFF-ROAD RIG',
     category: '3D',
-    categoryDisplay: '3D Automotive / Studio Raytracing',
+    categoryDisplay: '3D Hard-Surface / Jeep 4x4 Model',
     year: '2024',
-    description: 'Sleek hypercar prototype visualization featuring carbon-fiber bodywork, physically accurate tire compound textures, and dark moody studio light reflection strips with ultra-crisp specular falloff.',
-    role: '3D Automotive Modeler & Lighting Artist',
-    clientOrContext: 'Automotive Design & Studio Lighting Study',
-    software: ['Blender', 'Unreal Engine 5', 'Photoshop', 'DaVinci Resolve'],
-    thumbnail: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=1200&auto=format&fit=crop',
-    heroImage: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=1600&auto=format&fit=crop',
-    aspectRatio: 'tall',
+    description: 'High-poly 3D Jeep off-road vehicle modeling study featuring complex quad topology, heavy-duty suspension mechanics, beadlock wheels, and real-time viewport lookdev turntable.',
+    role: '3D Vehicle Modeler & Rigging Artist',
+    clientOrContext: 'Off-Road Automotive & Hard-Surface 3D Study',
+    software: ['Blender', 'Maya', 'Substance 3D Painter', 'Unreal Engine 5'],
+    thumbnail: '/images/jeep_3d_model_poster.jpg',
+    heroImage: '/images/jeep_3d_model_poster.jpg',
+    videoUrl: '/videos/jeep_3d_model.mp4',
+    aspectRatio: 'wide',
+    externalUrl: 'https://savedly.net/f/y2dkzsgc',
+    externalUrlLabel: 'WATCH SAVEDLY VIDEO',
     creativeProcess: [
-      'Mapped class-A aerodynamic surfaces ensuring uninterrupted reflection lines and zero pinch points.',
-      'Configured custom studio softbox rigs with falloff gradients to sculpt body creases with precision.',
-      'Designed clearcoat lacquer shaders with dual-layer normal maps for authentic orange-peel depth.'
+      'Constructed clean SubD quad mesh topology for the Jeep body panels, roll cage, hood latches, and front grille.',
+      'Accurately modeled mechanical chassis components including heavy-duty live axles, coilover shocks, and deep-tread off-road tires.',
+      'Captured real-time viewport turntable presentation showcasing edge flow, wireframe bevels, and material lookdev.'
     ],
     beforeAfter: {
-      labelBefore: 'SubD Clay Topology',
-      labelAfter: 'Studio Light Softbox Finish',
-      imageBefore: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop',
-      imageAfter: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=1200&auto=format&fit=crop',
-      description: 'Curvature flow inspection confirming clean highlight reflections across aerodynamic panels.'
+      labelBefore: 'SubD Wireframe Topology',
+      labelAfter: 'Lookdev Turntable Render',
+      imageBefore: '/images/jeep_3d_model_poster.jpg',
+      imageAfter: '/images/jeep_3d_model_poster.jpg',
+      description: 'Curvature flow and topology inspection demonstrating clean reflection lines and zero pinching across vehicle panels.'
     },
-    finalResultText: 'An editorial automotive series demonstrating precision studio lighting, high-gloss material science, and commercial render quality.',
+    finalResultText: 'A detailed hard-surface 3D vehicle project highlighting structural realism, precision edge bevels, and turntable viewport presentation.',
     gallery: [
-      'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1200&auto=format&fit=crop'
+      '/images/jeep_3d_model_poster.jpg',
+      'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=1200&auto=format&fit=crop'
     ]
   },
   {
     id: 'digital-experience',
-    number: '06',
+    number: '08',
     title: 'DIGITAL EXPERIENCE',
     category: 'WEB',
     categoryDisplay: 'UI/UX / Web Design',
@@ -312,7 +310,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'short-ad-film-lumina',
-    number: '10',
+    number: '09',
     title: 'SHORT AD FILM // FEVICOL MATRIMONY',
     category: 'SHORT AD FILM',
     categoryDisplay: 'Short Ad Film / Fevicol Matrimony TVC',
@@ -321,11 +319,11 @@ export const PROJECTS: Project[] = [
     role: 'Commercial Film Editor & Sound Designer',
     clientOrContext: 'Fevicol Matrimony Commercial Broadcast & Digital Campaign',
     software: ['Premiere Pro', 'DaVinci Resolve', 'Logic Pro', 'Audition'],
-    thumbnail: 'https://cdn.jumpshare.com/preview/5zK6f_026DMjEXmVEh6lnFwdfPGvhy9uzJv3bynjX-KTCyWEJY6a5UHdpFwu-tnZg4I9jLgToZPqQgOoj-MErKmkjW0SmAQBilOGFV8AKEU',
-    heroImage: 'https://cdn.jumpshare.com/preview/5zK6f_026DMjEXmVEh6lnFwdfPGvhy9uzJv3bynjX-KTCyWEJY6a5UHdpFwu-tnZg4I9jLgToZPqQgOoj-MErKmkjW0SmAQBilOGFV8AKEU',
-    videoUrl: 'https://cdn.jumpshare.com/preview/JdAHGJn1Rjzh88X44h_7xLUFW4CcPtg1RoZRrOLHqhVIBXN9NcZ6VLN0JVA9HBLi1YUr8RM0srv1S8ZPaLb41JuZRTL0DnifoHfOG-h_t4uTRh6ItsRHy1rNBUrOBb5BQtkEVLt8vPsSAXmho7zmOm6yjbN-I2pg_cnoHs_AmgI.mp4',
-    externalUrl: 'https://jumpshare.com/s/mjBoqoA6OHYKkuMvRXTb',
-    externalUrlLabel: 'WATCH ON JUMPSHARE',
+    thumbnail: '/videos/fevicol_matrimony_thumb.jpg',
+    heroImage: '/videos/fevicol_matrimony_poster.jpg',
+    videoUrl: '/videos/fevicol_matrimony.mp4',
+    externalUrl: 'https://savedly.net/f/thuvzfwu',
+    externalUrlLabel: 'WATCH ON SAVEDLY',
     aspectRatio: 'wide',
     featured: true,
     creativeProcess: [
@@ -337,18 +335,18 @@ export const PROJECTS: Project[] = [
       labelBefore: 'Raw Studio Assembly',
       labelAfter: 'Final Master Commercial Grade',
       imageBefore: 'https://images.unsplash.com/photo-1518173946687-a4c8a383392e?q=80&w=1200&auto=format&fit=crop',
-      imageAfter: 'https://cdn.jumpshare.com/preview/5zK6f_026DMjEXmVEh6lnFwdfPGvhy9uzJv3bynjX-KTCyWEJY6a5UHdpFwu-tnZg4I9jLgToZPqQgOoj-MErKmkjW0SmAQBilOGFV8AKEU',
+      imageAfter: '/videos/fevicol_matrimony_poster.jpg',
       description: 'Broadcast commercial color grade with rich film contrast, warm highlight roll-off, and vibrant costume separation.'
     },
     finalResultText: 'A high-impact, award-winning comedic ad film that drives instantaneous brand recall across national broadcast and digital streaming.',
     gallery: [
-      'https://cdn.jumpshare.com/preview/5zK6f_026DMjEXmVEh6lnFwdfPGvhy9uzJv3bynjX-KTCyWEJY6a5UHdpFwu-tnZg4I9jLgToZPqQgOoj-MErKmkjW0SmAQBilOGFV8AKEU',
-      'https://images.unsplash.com/photo-1517649763962-0c623266ddc0?q=80&w=1200&auto=format&fit=crop'
+      '/videos/fevicol_matrimony_poster.jpg',
+      '/videos/fevicol_matrimony_thumb.jpg'
     ]
   },
   {
     id: 'short-ad-film-pulse',
-    number: '11',
+    number: '10',
     title: 'RADIO SHOW // LIVE BROADCAST & AUDIO PRODUCTION',
     category: 'SHORT AD FILM',
     categoryDisplay: 'Radio Show / Audio & Live Visual Broadcast',
@@ -384,7 +382,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'short-ad-film-kinetic',
-    number: '12',
+    number: '11',
     title: 'SHORT AD FILM // KINETIC ENERGY SPOT',
     category: 'SHORT AD FILM',
     categoryDisplay: 'Short Ad Film / Beverage Commercial',
@@ -416,41 +414,8 @@ export const PROJECTS: Project[] = [
     ]
   },
   {
-    id: 'graphic-character-concept',
-    number: '13',
-    title: 'CHARACTER DESIGN // CYBER RONIN',
-    category: 'GRAPHIC DESIGN',
-    categoryDisplay: 'Graphic Design / Character Concept',
-    year: '2025',
-    description: 'Production character concept art and visual development sheet showcasing silhouette design, orthographic turnarounds, costume layer callouts, and expressive mood portraits.',
-    role: 'Lead Character Concept Artist & Illustrator',
-    clientOrContext: 'Animated Series Visual Development & Concept Art',
-    software: ['Photoshop', 'Procreate', 'Illustrator'],
-    thumbnail: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1200&auto=format&fit=crop',
-    heroImage: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1600&auto=format&fit=crop',
-    aspectRatio: 'tall',
-    featured: true,
-    creativeProcess: [
-      'Executed 30+ miniature thumbnail silhouette iterations searching for an imposing yet agile warrior posture.',
-      'Constructed detailed front, three-quarter, and back orthographic model sheets for animator hand-off.',
-      'Specified technical costume layers, fabric weaving patterns, and modular cybernetic limbs with color callouts.'
-    ],
-    beforeAfter: {
-      labelBefore: 'Raw Gestural Line Art',
-      labelAfter: 'Final Painted Concept Sheet',
-      imageBefore: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1200&auto=format&fit=crop',
-      imageAfter: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1200&auto=format&fit=crop',
-      description: 'Progressive refinement from expressive charcoal gesture sketching to full digital rendering with rim lighting.'
-    },
-    finalResultText: 'Comprehensive visual development package approved for animation production and teaser marketing assets.',
-    gallery: [
-      'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=1200&auto=format&fit=crop'
-    ]
-  },
-  {
     id: 'graphic-product-packaging',
-    number: '14',
+    number: '12',
     title: 'PRODUCT DESIGN // AURA BOTANICALS',
     category: 'GRAPHIC DESIGN',
     categoryDisplay: 'Graphic Design / Product & Packaging',
@@ -486,66 +451,104 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'graphic-props-schematics',
-    number: '15',
-    title: 'PROPS DESIGN // RECON GEAR RIG',
+    number: '13',
+    title: '@DIETCOKE X CHRISTMAS 🌲',
     category: 'GRAPHIC DESIGN',
-    categoryDisplay: 'Graphic Design / Props & Equipment',
+    categoryDisplay: 'Graphic Design / Holiday Visuals',
     year: '2025',
-    description: 'Technical production prop design sheets detailing high-tech recon headsets, cybernetic wrist comms, field utility modules, and exploded hardware component diagrams.',
-    role: 'Concept Prop Designer & Schematic Illustrator',
-    clientOrContext: 'Sci-Fi Video Game Entertainment Asset Bible',
-    software: ['Illustrator', 'Photoshop', 'AutoCAD Principles'],
-    thumbnail: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop',
-    heroImage: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1600&auto=format&fit=crop',
-    aspectRatio: 'wide',
+    description: 'tried making visuals for diet coke in the christmas theme for this season :) #dietcoke #explore #fyp #graphic #christmas explorepage fypシ cokepaglu',
+    role: 'Visual & Motion Graphic Designer',
+    clientOrContext: '@dietcoke X Christmas Seasonal Exploration',
+    software: ['Photoshop', 'After Effects', 'Illustrator', 'Premiere Pro'],
+    thumbnail: '/images/dietcoke_christmas_poster.jpg',
+    heroImage: '/images/dietcoke_christmas_poster.jpg',
+    videoUrl: '/videos/dietcoke_christmas.mp4',
+    externalUrl: 'https://savedly.net/f/qh3puax8',
+    aspectRatio: 'tall',
     creativeProcess: [
-      'Researched aerospace cockpit instrumentation, military field optics, and utilitarian tool ergonomics.',
-      'Drafted isometric exploded views pinpointing component materials: matte polymer, CNC aluminum, and rubber seals.',
-      'Designed vector HUD status icons, serial number stencil graphics, and hazard indicator badges.'
+      'Visual development exploring Diet Coke branding reimagined with frosty pine needles, iced condensation, and holiday lighting.',
+      'Composed vertical 9:16 social reel format with dynamic camera motion, rhythmic cuts, and atmospheric holiday soundtrack.',
+      'Crafted typography and seasonal iconography optimized for Instagram explore feed engagement.'
     ],
     beforeAfter: {
-      labelBefore: 'Wireframe Vector Blueprint',
-      labelAfter: 'Textured Production Prop Sheet',
-      imageBefore: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop',
-      imageAfter: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop',
-      description: 'Technical schematic drafting translated into fully rendered industrial asset sheets for 3D modelers.'
+      labelBefore: 'Raw Can Mockup',
+      labelAfter: 'Final Christmas Visual',
+      imageBefore: '/images/dietcoke_christmas_frame4.jpg',
+      imageAfter: '/images/dietcoke_christmas_poster.jpg',
+      description: 'Holiday visual styling transforming commercial packshot into a cinematic winter celebration.'
     },
-    finalResultText: 'Hero prop asset approved as the primary field equipment model for AAA game production pipeline.',
+    finalResultText: 'High-engagement viral social visual exploration celebrating Diet Coke in festive Christmas aesthetics.',
     gallery: [
-      'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?q=80&w=1200&auto=format&fit=crop'
+      '/images/dietcoke_christmas_poster.jpg',
+      '/images/dietcoke_christmas_frame4.jpg'
     ]
   },
   {
-    id: 'graphic-editorial-posters',
-    number: '16',
-    title: 'EDITORIAL DESIGN // BRUTALIST POSTERS',
-    category: 'GRAPHIC DESIGN',
-    categoryDisplay: 'Graphic Design / Editorial & Typography',
-    year: '2024',
-    description: 'Brutalist print poster series exploring experimental typographic contrast, risograph halftone textures, asymmetric grid divisions, and high-impact chromatic color palettes.',
-    role: 'Art Director & Editorial Typographer',
-    clientOrContext: 'Contemporary Art Institute Exhibition Catalog & Street Posters',
-    software: ['InDesign', 'Photoshop', 'Illustrator'],
-    thumbnail: 'https://images.unsplash.com/photo-1542744094-24638eff58bb?q=80&w=1200&auto=format&fit=crop',
-    heroImage: 'https://images.unsplash.com/photo-1542744094-24638eff58bb?q=80&w=1600&auto=format&fit=crop',
-    aspectRatio: 'tall',
+    id: 'sketch-gallery-character-concept',
+    number: '14',
+    title: 'SKETCH VAULT // DYNAMIC GESTURE & CHARACTER ART',
+    category: 'SKETCH GALLERY',
+    categoryDisplay: 'Sketch Gallery / Gestural Studies & Concept Ink',
+    year: '2025',
+    description: 'Raw exploratory sketchbook studies, gestural anatomy figures, pencil weight explorations, and stylized character silhouettes bridging traditional sketching with digital refinement.',
+    role: 'Concept Artist & Traditional Sketcher',
+    clientOrContext: 'Personal Sketchbook & Visual Development R&D',
+    software: ['Graphite 2B', 'Charcoal', 'Micron Fine-liners', 'Procreate'],
+    thumbnail: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1200&auto=format&fit=crop',
+    heroImage: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1600&auto=format&fit=crop',
+    aspectRatio: 'square',
+    featured: true,
     creativeProcess: [
-      'Composed high-density type hierarchies breaking and rebuilding classical Swiss typographic grid rules.',
-      'Generated custom screen-print halftone screens and ink bleed passes in Photoshop for tactile warmth.',
-      'Selected heavy archival cotton paper stock formulations with metallic Pantone spot inks.'
+      'Authored rapid 90-second gestural studies examining line of action, spinal compression, and natural silhouette tension.',
+      'Layered soft 4B graphite shading over raw mechanical pencil construction lines for depth and tactile texture.',
+      'Developed ink cross-hatching passes defining directional light sources and character anatomy planes.'
     ],
     beforeAfter: {
-      labelBefore: 'Monochrome Grid Draft',
-      labelAfter: 'Risograph Screenprint Edition',
-      imageBefore: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop',
-      imageAfter: 'https://images.unsplash.com/photo-1542744094-24638eff58bb?q=80&w=1200&auto=format&fit=crop',
-      description: 'Abstract editorial layout elevated through textured CMYK offset plates and heavy paper stock.'
+      labelBefore: 'Raw Blue Pencil Gesture',
+      labelAfter: 'Finished Ink & Charcoal Plate',
+      imageBefore: 'https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1200&auto=format&fit=crop',
+      imageAfter: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1200&auto=format&fit=crop',
+      description: 'Progression from exploratory loose posture armature to tight, inked character silhouette.'
     },
-    finalResultText: 'Exhibition poster series printed in a limited run of 500 numbered copies and archived in design publications.',
+    finalResultText: 'Comprehensive traditional sketchbook archive serving as the anatomical bedrock for 2D animation and 3D character modeling.',
     gallery: [
-      'https://images.unsplash.com/photo-1542744094-24638eff58bb?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=1200&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?q=80&w=1200&auto=format&fit=crop'
+    ]
+  },
+  {
+    id: 'sketch-gallery-storyboards',
+    number: '15',
+    title: 'SKETCH VAULT // TVC STORYBOARD & CAMERA THUMBNAILS',
+    category: 'SKETCH GALLERY',
+    categoryDisplay: 'Sketch Gallery / Commercial Storyboard & Camera Blocking',
+    year: '2025',
+    description: 'Rapid thumbnail sketch sequences capturing camera blocking, dramatic chiaroscuro framing, lens focal length choices, and kinetic action cuts for commercials and motion pieces.',
+    role: 'Storyboard Artist & Visual Storyteller',
+    clientOrContext: 'Commercial Pre-Production & Visual Direction Bible',
+    software: ['Indian Ink', 'Copic Warm Gray Markers', 'Photoshop'],
+    thumbnail: 'https://images.unsplash.com/photo-1582561424760-0321d75e81fa?q=80&w=1200&auto=format&fit=crop',
+    heroImage: 'https://images.unsplash.com/photo-1582561424760-0321d75e81fa?q=80&w=1600&auto=format&fit=crop',
+    aspectRatio: 'wide',
+    featured: true,
+    creativeProcess: [
+      'Blocked out 16:9 thumbnail ratios investigating rule-of-thirds dynamism and foreground silhouette depth.',
+      'Applied dual-tone gray marker values to test visual readability in under 0.5 seconds of viewer gaze.',
+      'Mapped velocity arrows and camera motion pans directly onto sketch frames to guide editorial cutting timing.'
+    ],
+    beforeAfter: {
+      labelBefore: 'Initial Rough Thumbnail Sketch',
+      labelAfter: 'Value-Toned Storyboard Panel',
+      imageBefore: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1200&auto=format&fit=crop',
+      imageAfter: 'https://images.unsplash.com/photo-1582561424760-0321d75e81fa?q=80&w=1200&auto=format&fit=crop',
+      description: 'Rapid thumbnail blocking developed into comprehensive pre-visualization storyboard frames.'
+    },
+    finalResultText: 'Production-ready storyboard sheets that accelerated live-action commercial shooting efficiency and VFX plate alignment.',
+    gallery: [
+      'https://images.unsplash.com/photo-1582561424760-0321d75e81fa?q=80&w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=1200&auto=format&fit=crop'
     ]
   }
 ];
@@ -563,9 +566,9 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     id: 'vfx',
     number: '02',
     title: 'VFX',
-    tagline: 'Compositing, rotoscoping, clean-plating & photorealistic CGI integration.',
-    tools: ['Compositing', 'Motion Tracking', 'Rotoscoping', 'Green Screen', 'Visual Effects'],
-    competencies: ['Planar & 3D Tracking', 'Chroma Keying', 'Object Removal / Clean Plates', 'Grain Matching', 'Atmosphere Simulation']
+    tagline: 'Node-based Nuke compositing, rotoscoping, planar tracking, clean-plating & CGI integration.',
+    tools: ['Nuke', 'Mocha Pro', 'Compositing', 'Roto Tracking', 'Clean Plates'],
+    competencies: ['Nuke Node Compositing', 'Planar & Point Tracking', 'Multi-Layer Rotoscoping', 'Object Removal & Clean Plates', 'Grain Matching & Integration']
   },
   {
     id: 'design',

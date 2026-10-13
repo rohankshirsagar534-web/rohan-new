@@ -105,11 +105,17 @@ export const About: React.FC = () => {
             {/* Large Section Heading */}
             <h2
               id="about-main-title"
-              className="font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight uppercase mb-8"
+              style={{ fontFamily: 'Arial', lineHeight: '108.2px' }}
+              className="font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight uppercase mb-8"
             >
               I CREATE<br />
               VISUAL<br />
-              <span className="text-[#F7A928]">EXPERIENCES.</span>
+              <span
+                style={{ fontFamily: 'Georgia', lineHeight: '92.2px' }}
+                className="text-[#F7A928]"
+              >
+                EXPERIENCES.
+              </span>
             </h2>
 
             {/* Body Copy */}
