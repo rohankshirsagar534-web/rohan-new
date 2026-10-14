@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowUpRight, ArrowDown } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import { resolveAsset } from '../utils/assets';
 
 interface HeroProps {
   onExploreClick?: () => void;
@@ -155,7 +156,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
                   id="hero-card-img"
                   src="https://i.ibb.co/0jdjh24J/Chat-GPT-Image-Sep-17-2026-02-16-34-AM.png"
                   onError={(e) => {
-                    (e.currentTarget as HTMLImageElement).src = '/assets/hero_portrait_v2.png';
+                    (e.currentTarget as HTMLImageElement).src = resolveAsset('/assets/hero_portrait_v2.png');
                   }}
                   referrerPolicy="no-referrer"
                   alt="Rohan Kshirsagar Visual Universe"
