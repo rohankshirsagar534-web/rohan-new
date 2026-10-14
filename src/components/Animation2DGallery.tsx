@@ -9,9 +9,11 @@ import {
   Image as ImageIcon, 
   Layers, 
   X,
-  Maximize2
+  Maximize2,
+  ExternalLink
 } from 'lucide-react';
 import { ANIMATION_2D_GALLERY } from '../data/portfolioData';
+import { resolveAsset } from '../utils/assets';
 import { AnimationWorkItem } from '../types';
 
 export const Animation2DGallery: React.FC = () => {
@@ -128,21 +130,34 @@ export const Animation2DGallery: React.FC = () => {
               >
                 {isVideo ? (
                   <div className="w-full h-full relative">
-                    <img
-                      src={item.poster || item.mediaUrl}
-                      alt={item.title}
+                    <video
+                      src={resolveAsset(item.mediaUrl)}
+                      poster={item.poster ? resolveAsset(item.poster) : undefined}
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      onMouseEnter={(e) => {
+                        const v = e.currentTarget;
+                        v.play().catch(() => {});
+                      }}
+                      onMouseLeave={(e) => {
+                        const v = e.currentTarget;
+                        v.pause();
+                        v.currentTime = 0;
+                      }}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                      <div className="w-11 h-11 rounded-full bg-[#F7A928] text-black flex items-center justify-center shadow-lg group-hover:scale-110 active:scale-95 transition-all">
-                        <Play size={18} className="fill-black ml-0.5" />
-                      </div>
+                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors pointer-events-none" />
+                    <div className="absolute bottom-2.5 left-2.5 flex items-center gap-1.5 bg-black/80 backdrop-blur-md px-2 py-0.5 rounded-xs text-[10px] font-mono font-bold text-[#F7A928] border border-white/10 pointer-events-none">
+                      <Play size={10} className="fill-[#F7A928]" />
+                      <span>HOVER TO PREVIEW</span>
                     </div>
                   </div>
                 ) : (
                   <div className="w-full h-full relative">
                     <img
-                      src={item.mediaUrl}
+                      src={resolveAsset(item.mediaUrl)}
                       alt={item.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
@@ -167,7 +182,7 @@ export const Animation2DGallery: React.FC = () => {
                 </div>
 
                 {/* Bottom Duration / Category Tag */}
-                <div className="absolute bottom-2 right-2 font-mono text-[9px] bg-black/80 backdrop-blur-md text-white/80 px-2 py-0.5 rounded-xs border border-white/10">
+                <div className="absolute bottom-2 right-2 font-mono text-[9px] bg-black/80 backdrop-blur-md text-white/80 px-2 py-0.5 rounded-xs border border-white/10 pointer-events-none">
                   {item.duration || item.tag}
                 </div>
               </div>
@@ -186,18 +201,33 @@ export const Animation2DGallery: React.FC = () => {
                   </p>
                 </div>
 
-                {item.software && (
-                  <div className="flex flex-wrap items-center gap-1 pt-2 border-t border-white/5">
-                    {item.software.map((sw, sIdx) => (
-                      <span
-                        key={sIdx}
-                        className="font-mono text-[9px] uppercase px-1.5 py-0.5 rounded-xs bg-white/5 text-white/60"
-                      >
-                        {sw}
-                      </span>
-                    ))}
-                  </div>
-                )}
+                <div className="flex items-center justify-between pt-2 border-t border-white/5">
+                  {item.software ? (
+                    <div className="flex flex-wrap items-center gap-1">
+                      {item.software.slice(0, 2).map((sw, sIdx) => (
+                        <span
+                          key={sIdx}
+                          className="font-mono text-[9px] uppercase px-1.5 py-0.5 rounded-xs bg-white/5 text-white/60"
+                        >
+                          {sw}
+                        </span>
+                      ))}
+                    </div>
+                  ) : <div />}
+
+                  {item.savedlyUrl && (
+                    <a
+                      href={item.savedlyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="flex items-center gap-1 text-[10px] font-mono text-[#F7A928] hover:text-white transition-colors"
+                    >
+                      <span>SAVEDLY</span>
+                      <ExternalLink size={10} />
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           );
@@ -236,19 +266,19 @@ export const Animation2DGallery: React.FC = () => {
               {activeItem.type === 'video' ? (
                 <video
                   ref={modalVideoRef}
-                  src={activeItem.mediaUrl}
-                  poster={activeItem.poster}
+                  src={resolveAsset(activeItem.mediaUrl)}
+                  poster={activeItem.poster ? resolveAsset(activeItem.poster) : undefined}
                   controls
                   autoPlay
                   loop
                   playsInline
                   className="w-full h-full object-contain"
                 >
-                  <source src={activeItem.mediaUrl} type="video/mp4" />
+                  <source src={resolveAsset(activeItem.mediaUrl)} type="video/mp4" />
                 </video>
               ) : (
                 <img
-                  src={activeItem.mediaUrl}
+                  src={resolveAsset(activeItem.mediaUrl)}
                   alt={activeItem.title}
                   className="w-full h-full object-contain"
                 />
@@ -266,18 +296,32 @@ export const Animation2DGallery: React.FC = () => {
                 </p>
               </div>
 
-              {activeItem.software && (
-                <div className="flex items-center gap-1.5 shrink-0">
-                  {activeItem.software.map((sw, idx) => (
-                    <span
-                      key={idx}
-                      className="font-mono text-[10px] uppercase px-2 py-1 rounded-xs bg-white/10 text-white font-bold"
-                    >
-                      {sw}
-                    </span>
-                  ))}
-                </div>
-              )}
+              <div className="flex items-center gap-3 shrink-0">
+                {activeItem.software && (
+                  <div className="flex items-center gap-1.5">
+                    {activeItem.software.map((sw, idx) => (
+                      <span
+                        key={idx}
+                        className="font-mono text-[10px] uppercase px-2 py-1 rounded-xs bg-white/10 text-white font-bold"
+                      >
+                        {sw}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {activeItem.savedlyUrl && (
+                  <a
+                    href={activeItem.savedlyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#F7A928] text-black font-mono font-bold text-xs uppercase hover:bg-white transition-colors"
+                  >
+                    <span>SAVEDLY</span>
+                    <ExternalLink size={12} />
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         </div>

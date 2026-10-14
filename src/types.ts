@@ -1,12 +1,42 @@
 export type ProjectCategory = 
   | 'ALL'
   | 'SHORT AD FILM'
+  | '2D ANIMATION'
   | 'VFX'
   | 'MOTION'
   | '3D'
   | 'GRAPHIC DESIGN'
+  | 'DIGITAL ART'
   | 'SKETCH GALLERY'
   | 'WEB';
+
+export interface DigitalArtItem {
+  id: string;
+  title: string;
+  category: string;
+  software: string[];
+  year: string;
+  imageUrl: string;
+  savedlyUrl: string;
+  description: string;
+  aspect: 'portrait' | 'landscape' | 'square';
+  tags: string[];
+}
+
+export interface WebExperienceItem {
+  id: string;
+  title: string;
+  type: 'video' | 'image';
+  mediaUrl: string;
+  posterUrl?: string;
+  savedlyUrl: string;
+  category: string;
+  description: string;
+  software: string[];
+  year: string;
+  aspect?: 'wide' | 'portrait' | 'square';
+  tags: string[];
+}
 
 export interface Project {
   id: string;
@@ -56,6 +86,7 @@ export interface AnimationWorkItem {
   description: string;
   software?: string[];
   duration?: string;
+  savedlyUrl?: string;
 }
 
 export interface SkillItem {

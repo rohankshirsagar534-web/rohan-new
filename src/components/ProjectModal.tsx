@@ -85,6 +85,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
       activeVideoUrl.includes('rohan_showreel')
     ) {
       activeVideoUrl = '/videos/nuke_vfx_compositing.mp4';
+    } else if (
+      activeVideoUrl.includes('savedly.net/f/js22tabz') ||
+      activeVideoUrl.includes('js22tabz') ||
+      activeVideoUrl.includes('web_interaction_recording')
+    ) {
+      activeVideoUrl = '/videos/web_interaction_recording_01.mp4';
     }
   }
 
@@ -153,6 +159,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
       cleanUrl.includes('nuke_vfx_compositing')
     ) {
       finalUrl = '/videos/nuke_vfx_compositing.mp4';
+      setVideoAspect('wide');
+    } else if (
+      cleanUrl.includes('savedly.net/f/js22tabz') ||
+      cleanUrl.includes('js22tabz') ||
+      cleanUrl.includes('web_interaction_recording')
+    ) {
+      finalUrl = '/videos/web_interaction_recording_01.mp4';
       setVideoAspect('wide');
     } else if (cleanUrl.includes('jumpshare.com/s/Ay6kHCYfGP2s3hW06wJQ')) {
       finalUrl = '/videos/ay6khcyf_video.mp4';

@@ -286,26 +286,43 @@ export const PROJECTS: Project[] = [
   {
     id: 'digital-experience',
     number: '08',
-    title: 'DIGITAL EXPERIENCE',
+    title: 'DIGITAL EXPERIENCE // UI/UX DESIGN & WEB SUITE',
     category: 'WEB',
-    categoryDisplay: 'UI/UX / Web Design',
+    categoryDisplay: 'UI/UX / Web Design & Interactive Prototype',
     year: '2025',
-    description: 'Immersive interactive visual web experience combining brutalist micro-interactions, responsive grid fluidity, and dark editorial aesthetic for digital creators.',
+    description: 'Immersive interactive visual web experience combining brutalist micro-interactions, responsive grid fluidity, and dark editorial aesthetic for digital creators. Includes recorded user flows and design systems.',
     role: 'UI/UX & Creative Frontend Designer',
-    clientOrContext: 'Creative Studio Web Presence',
+    clientOrContext: 'Creative Studio Web Presence & Interactive Architecture',
     software: ['Figma', 'React', 'Tailwind CSS', 'Motion'],
-    thumbnail: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1200&auto=format&fit=crop',
-    heroImage: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1600&auto=format&fit=crop',
+    thumbnail: '/images/web-experience/ui_screen_08_full_page.png',
+    heroImage: '/images/web-experience/ui_screen_03_desktop_view.png',
+    videoUrl: '/videos/web_interaction_recording_01.mp4',
+    externalUrl: 'https://savedly.net/f/js22tabz',
+    externalUrlLabel: 'WATCH WEB RECORDING',
     aspectRatio: 'wide',
+    featured: true,
     creativeProcess: [
-      'Conducted user flow mapping focusing on seamless discovery of visual showreel clips.',
-      'Designed a high-contrast black/off-white color system with cinematic warm orange accents.',
-      'Engineered sub-60fps fluid transitions with zero layout shift.'
+      'Conducted user flow mapping focusing on discovery of visual showreel clips and rapid interactive filtering.',
+      'Designed a high-contrast black/off-white color system with cinematic warm orange accents and crisp typography.',
+      'Recorded real-time interactive screen recordings validating 60fps responsive fluidity across viewport sizes.'
     ],
+    beforeAfter: {
+      labelBefore: 'Wireframe & Flow Mapping',
+      labelAfter: 'Full Interactive Web Layout',
+      imageBefore: '/images/web-experience/ui_screen_04_flow.png',
+      imageAfter: '/images/web-experience/ui_screen_08_full_page.png',
+      description: 'Progression from component state layouts to complete live responsive interface.'
+    },
     finalResultText: 'A high-performance responsive interface built to showcase high-bitrate media smoothly across all mobile and desktop viewports.',
     gallery: [
-      'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop'
+      '/images/web-experience/ui_screen_08_full_page.png',
+      '/images/web-experience/ui_screen_03_desktop_view.png',
+      '/images/web-experience/ui_screen_01_dashboard.png',
+      '/images/web-experience/ui_screen_02_landing.png',
+      '/images/web-experience/ui_screen_04_flow.png',
+      '/images/web-experience/ui_screen_05_interaction.png',
+      '/images/web-experience/ui_screen_06_components.png',
+      '/images/web-experience/ui_screen_07_layout.png'
     ]
   },
   {
@@ -494,27 +511,31 @@ export const PROJECTS: Project[] = [
     role: 'Concept Artist & Traditional Sketcher',
     clientOrContext: 'Personal Sketchbook & Visual Development R&D',
     software: ['Graphite 2B', 'Charcoal', 'Micron Fine-liners', 'Procreate'],
-    thumbnail: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1200&auto=format&fit=crop',
-    heroImage: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1600&auto=format&fit=crop',
+    thumbnail: '/images/sketches/character_turnaround_model.png',
+    heroImage: '/images/sketches/character_turnaround_model.png',
     aspectRatio: 'square',
     featured: true,
     creativeProcess: [
-      'Authored rapid 90-second gestural studies examining line of action, spinal compression, and natural silhouette tension.',
-      'Layered soft 4B graphite shading over raw mechanical pencil construction lines for depth and tactile texture.',
-      'Developed ink cross-hatching passes defining directional light sources and character anatomy planes.'
+      'Authored rapid gestural studies examining line of action, spinal compression, and natural silhouette tension.',
+      'Constructed rigorous head and cap perspective studies across left, below, and eye-level angles.',
+      'Refined character model turnarounds with jacket detailing, cargo folds, and streetwear posture.'
     ],
     beforeAfter: {
-      labelBefore: 'Raw Blue Pencil Gesture',
-      labelAfter: 'Finished Ink & Charcoal Plate',
-      imageBefore: 'https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1200&auto=format&fit=crop',
-      imageAfter: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1200&auto=format&fit=crop',
-      description: 'Progression from exploratory loose posture armature to tight, inked character silhouette.'
+      labelBefore: 'Loomis Cranium & Cap Angles',
+      labelAfter: 'Finished 3-Pose Model Sheet',
+      imageBefore: '/images/sketches/cap_head_perspective.png',
+      imageAfter: '/images/sketches/character_turnaround_model.png',
+      description: 'Progression from exploratory cranial volume armature to tight character fashion model sheet.'
     },
     finalResultText: 'Comprehensive traditional sketchbook archive serving as the anatomical bedrock for 2D animation and 3D character modeling.',
     gallery: [
-      'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?q=80&w=1200&auto=format&fit=crop'
+      '/images/sketches/character_turnaround_model.png',
+      '/images/sketches/postman_bicycle_rain.png',
+      '/images/sketches/flower_vendor_market.png',
+      '/images/sketches/fisherwoman_portrait.png',
+      '/images/sketches/cap_head_perspective.png',
+      '/images/sketches/sketch_analog_study_01.jpg',
+      '/images/sketches/sketch_analog_study_05.jpg'
     ]
   },
   {
@@ -528,27 +549,110 @@ export const PROJECTS: Project[] = [
     role: 'Storyboard Artist & Visual Storyteller',
     clientOrContext: 'Commercial Pre-Production & Visual Direction Bible',
     software: ['Indian Ink', 'Copic Warm Gray Markers', 'Photoshop'],
-    thumbnail: 'https://images.unsplash.com/photo-1582561424760-0321d75e81fa?q=80&w=1200&auto=format&fit=crop',
-    heroImage: 'https://images.unsplash.com/photo-1582561424760-0321d75e81fa?q=80&w=1600&auto=format&fit=crop',
+    thumbnail: '/images/sketches/postman_bicycle_rain.png',
+    heroImage: '/images/sketches/food_exploration_thali.png',
     aspectRatio: 'wide',
     featured: true,
     creativeProcess: [
-      'Blocked out 16:9 thumbnail ratios investigating rule-of-thirds dynamism and foreground silhouette depth.',
-      'Applied dual-tone gray marker values to test visual readability in under 0.5 seconds of viewer gaze.',
-      'Mapped velocity arrows and camera motion pans directly onto sketch frames to guide editorial cutting timing.'
+      'Executed architectural and street observational studies analyzing values, timber textures, and cast shadows.',
+      'Developed authentic visual development spreads across culinary plating, tea stalls, and packaging typography.',
+      'Illustrated freehand FMCG packaging breakdowns and cultural character figures with fine-liner ink.'
     ],
     beforeAfter: {
-      labelBefore: 'Initial Rough Thumbnail Sketch',
-      labelAfter: 'Value-Toned Storyboard Panel',
-      imageBefore: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1200&auto=format&fit=crop',
-      imageAfter: 'https://images.unsplash.com/photo-1582561424760-0321d75e81fa?q=80&w=1200&auto=format&fit=crop',
-      description: 'Rapid thumbnail blocking developed into comprehensive pre-visualization storyboard frames.'
+      labelBefore: 'Street Kiosk Observational Study',
+      labelAfter: 'Culinary Spread & Packaging Exploration',
+      imageBefore: '/images/sketches/roadside_kiosk_vendor.png',
+      imageAfter: '/images/sketches/food_exploration_thali.png',
+      description: 'Observational street studies translated into finished conceptual culinary spreads and packaging breakdowns.'
     },
-    finalResultText: 'Production-ready storyboard sheets that accelerated live-action commercial shooting efficiency and VFX plate alignment.',
+    finalResultText: 'Comprehensive environment, food, and product packaging sketchbook archive grounding commercial visual projects.',
     gallery: [
-      'https://images.unsplash.com/photo-1582561424760-0321d75e81fa?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=1200&auto=format&fit=crop'
+      '/images/sketches/food_exploration_thali.png',
+      '/images/sketches/postman_bicycle_rain.png',
+      '/images/sketches/flower_vendor_market.png',
+      '/images/sketches/roadside_kiosk_vendor.png',
+      '/images/sketches/fmcg_goodday_parleg.png',
+      '/images/sketches/fmcg_bourbon_chaas.png',
+      '/images/sketches/south_indian_tiffin.png',
+      '/images/sketches/sketch_analog_study_02.jpg',
+      '/images/sketches/sketch_analog_study_06.jpg'
+    ]
+  },
+  {
+    id: 'digital-art-suite',
+    number: '16',
+    title: 'DIGITAL ART // CONCEPT ART & 2D VECTOR SUITE',
+    category: 'DIGITAL ART',
+    categoryDisplay: 'Digital Art / Concept Painting & Vector Illustrations',
+    year: '2025',
+    description: 'A curated suite of digital paintings, character concepts, environmental keyframes, and vector illustrations crafted in Photoshop, Procreate, and Illustrator.',
+    role: 'Digital Illustrator & Concept Artist',
+    clientOrContext: 'Personal Visual Development & Concept Art Series',
+    software: ['Photoshop', 'Procreate', 'Illustrator', 'Wacom'],
+    thumbnail: '/images/digital-art/digital_illustration_07.png',
+    heroImage: '/images/digital-art/digital_illustration_06.png',
+    externalUrl: 'https://savedly.net/f/wzjtuv63',
+    externalUrlLabel: 'VIEW SAVEDLY GALLERY',
+    aspectRatio: 'wide',
+    featured: true,
+    creativeProcess: [
+      'Blocked out high-contrast tonal values and thumbnail silhouettes to establish strong compositional reads.',
+      'Refined color harmonies and directional lighting passes defining metallic sheens and soft skin speculars.',
+      'Applied custom texture brushes and cinematic film grain overlays for rich tactile depth.'
+    ],
+    beforeAfter: {
+      labelBefore: 'Raw Silhouette Block-in',
+      labelAfter: 'Finished Digital Render',
+      imageBefore: '/images/digital-art/digital_illustration_01.png',
+      imageAfter: '/images/digital-art/digital_illustration_07.png',
+      description: 'Progression from exploratory digital brush block-in to full-fidelity color keyframe illustration.'
+    },
+    finalResultText: 'Expressive digital art collection showcasing color theory, character design, and environment concept painting.',
+    gallery: [
+      '/images/digital-art/digital_illustration_07.png',
+      '/images/digital-art/digital_illustration_06.png',
+      '/images/digital-art/digital_illustration_02.png',
+      '/images/digital-art/digital_illustration_03.png',
+      '/images/digital-art/digital_illustration_04.png',
+      '/images/digital-art/digital_illustration_05.png',
+      '/images/digital-art/digital_illustration_01.png'
+    ]
+  },
+  {
+    id: 'animation-2d-vault-project',
+    number: '17',
+    title: '2D ANIMATION // HAND-DRAWN PRINCIPLES & NARRATIVE SHORTS',
+    category: '2D ANIMATION',
+    categoryDisplay: '2D Animation / Classical Keyframing & Character Acting',
+    year: '2025',
+    description: 'A comprehensive traditional and digital 2D animation portfolio spanning the 12 principles of animation: walk cycles, squash & stretch, wave dynamics, shape-shifting metamorphosis, and narrative character storytelling.',
+    role: '2D Animator, Character Rigger & Director',
+    clientOrContext: '2D Animation Studio Works & Classical Studies',
+    software: ['Toon Boom Harmony', 'Adobe Animate', 'After Effects', 'Photoshop'],
+    thumbnail: '/images/digital-art/digital_illustration_07.png',
+    heroImage: '/images/digital-art/digital_illustration_06.png',
+    videoUrl: '/videos/animation-2d/anim2d_01_g5k58uqy.mp4',
+    externalUrl: 'https://savedly.net/f/g5k58uqy',
+    externalUrlLabel: 'WATCH STREAMING STORY ON SAVEDLY',
+    aspectRatio: 'wide',
+    featured: true,
+    creativeProcess: [
+      'Mastered the classical 12 animation principles with squash & stretch ball bounces, pendulum arcs, and weight distribution.',
+      'Constructed fluid 8-frame human walk cycles with secondary hair and cloth drag physics.',
+      'Directed complete narrative character short films with lip-sync, expressive acting beats, and dynamic camera staging.'
+    ],
+    beforeAfter: {
+      labelBefore: 'Squash & Stretch Foundation',
+      labelAfter: 'Full Character Narrative Short',
+      imageBefore: '/images/web-experience/ui_screen_04_flow.png',
+      imageAfter: '/images/digital-art/digital_illustration_07.png',
+      description: 'Progression from mechanical physics exercises to complete character acting and story execution.'
+    },
+    finalResultText: 'A high-fidelity 2D animation showcase proving classical draftsmanship, timing sensitivity, and emotional acting craft.',
+    gallery: [
+      '/images/digital-art/digital_illustration_07.png',
+      '/images/digital-art/digital_illustration_06.png',
+      '/images/digital-art/digital_illustration_02.png'
     ]
   }
 ];
@@ -681,141 +785,111 @@ export const JOURNEY_ITEMS: JourneyMilestone[] = [
 export const ANIMATION_2D_GALLERY: AnimationWorkItem[] = [
   {
     id: 'anim-2d-01',
-    title: 'Character Walk & Fluid Motion Loop',
+    title: 'Streaming Story // Full 2D Character Short Film',
     type: 'video',
-    mediaUrl: 'https://cdn.jumpshare.com/preview/vw64keW9QzxrsAm74YyQs_Dthi5alxYlZnuvPy3tAEq_LRC3taoj7CFbgo0TT8e7HRm7REAjDOWkANdLVaXv2DS7jRJUAAIR48_-gQIBfyYGDPk1EGnE7-h4JX7jDLp9Jg6PfL_cIPtxNMFz_CBQaW6yjbN-I2pg_cnoHs_AmgI.mp4',
-    poster: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop',
-    tag: 'Character Rigging',
-    aspect: 'portrait',
-    description: 'Frame-by-frame stylized 2D character cycle with secondary cloth simulation, expressive bounce easing, and hand-drawn line textures.',
-    software: ['After Effects', 'Illustrator', 'RoughAnimator'],
-    duration: '0:15'
+    mediaUrl: '/videos/animation-2d/anim2d_01_g5k58uqy.mp4',
+    tag: 'Narrative Short',
+    aspect: 'landscape',
+    description: 'Complete character narrative short film featuring hand-keyed character acting, lip-sync, dynamic transitions, and background staging.',
+    software: ['Toon Boom Harmony', 'After Effects', 'Premiere Pro'],
+    duration: 'Full Cut',
+    savedlyUrl: 'https://savedly.net/f/g5k58uqy'
   },
   {
     id: 'anim-2d-02',
-    title: 'Cyberpunk Neon Street Keyframe & Concept Plate',
-    type: 'photo',
-    mediaUrl: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=1200&auto=format&fit=crop',
-    tag: 'Background Art',
+    title: 'Ocean Voyage // Boat Rig & Wave Dynamics #02',
+    type: 'video',
+    mediaUrl: '/videos/animation-2d/anim2d_02_uyurzts2.mp4',
+    tag: 'Wave Physics',
     aspect: 'landscape',
-    description: 'Digital 2D layout illustration and environmental atmosphere plate painted for a dystopian neon anime short series.',
-    software: ['Photoshop', 'Procreate'],
-    duration: 'Still Artwork'
+    description: 'Secondary wave buoyancy, secondary action, and water crest interaction on a stylized floating vessel.',
+    software: ['Adobe Animate', 'After Effects'],
+    duration: 'Physics Study',
+    savedlyUrl: 'https://savedly.net/f/uyurzts2'
   },
   {
     id: 'anim-2d-03',
-    title: 'Dynamic Kinetic Action & Impact Frame Blast',
+    title: 'Nautical Drift // Boat Wave Buoyancy #01',
     type: 'video',
-    mediaUrl: '/assets/diorama_render.mp4',
-    poster: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=1200&auto=format&fit=crop',
-    tag: 'Action FX',
-    aspect: 'square',
-    description: 'High-speed 2D impact sequence featuring smearing lines, anime lightning sparks, smoke puff deformation, and camera shake punch.',
-    software: ['After Effects', 'Photoshop', 'Clip Studio Paint'],
-    duration: '0:10'
+    mediaUrl: '/videos/animation-2d/anim2d_03_2zqhnxyj.mp4',
+    tag: 'Buoyancy & Waves',
+    aspect: 'landscape',
+    description: 'Primary ocean wave physics and floating vessel keyframe study with rhythmic crest easing and hull rotation.',
+    software: ['Adobe Animate', 'After Effects'],
+    duration: 'Fluid Motion',
+    savedlyUrl: 'https://savedly.net/f/2zqhnxyj'
   },
   {
     id: 'anim-2d-04',
-    title: 'Expressive Character Facial Morph & Emotion Transitions',
-    type: 'photo',
-    mediaUrl: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1200&auto=format&fit=crop',
-    tag: 'Model Sheet',
+    title: 'Pendulum Arcs // Gravitational Timing & Easing #01',
+    type: 'video',
+    mediaUrl: '/videos/animation-2d/anim2d_04_7zw7f7cx.mp4',
+    tag: 'Arcs & Timing',
     aspect: 'landscape',
-    description: 'Full 2D character model turnaround with 8-angle facial expression studies, eye shape phonemes, and silhouette turnaround sheet.',
-    software: ['Illustrator', 'Clip Studio Paint'],
-    duration: 'Character Sheet'
+    description: 'Foundational mechanical timing exercise demonstrating gravitational acceleration, pendulum overshoot, and natural decay arcs.',
+    software: ['Adobe Animate', 'TVPaint'],
+    duration: 'Arc Study',
+    savedlyUrl: 'https://savedly.net/f/7zw7f7cx'
   },
   {
     id: 'anim-2d-05',
-    title: 'Morphing Shape Geometry & Kinetic Transition Sequence',
+    title: 'Animated Self-Intro // "Hi! I am Rohan"',
     type: 'video',
-    mediaUrl: 'https://cdn.jumpshare.com/preview/JdAHGJn1Rjzh88X44h_7xLUFW4CcPtg1RoZRrOLHqhVIBXN9NcZ6VLN0JVA9HBLi1YUr8RM0srv1S8ZPaLb41JuZRTL0DnifoHfOG-h_t4uTRh6ItsRHy1rNBUrOBb5BQtkEVLt8vPsSAXmho7zmOm6yjbN-I2pg_cnoHs_AmgI.mp4',
-    poster: 'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?q=80&w=1200&auto=format&fit=crop',
-    tag: 'Motion Graphics',
+    mediaUrl: '/videos/animation-2d/anim2d_05_48qytahx.mp4',
+    tag: 'Character Acting',
     aspect: 'landscape',
-    description: 'Hypnotic geometric 2D vector morphing experiment combining strict mathematical spacing, elastic easing, and color theory palettes.',
-    software: ['After Effects', 'Illustrator'],
-    duration: '0:20'
+    description: 'Charming hand-drawn animated persona self-introduction showcasing friendly character appeal, wave gesture, and personality keying.',
+    software: ['Toon Boom Harmony', 'After Effects'],
+    duration: 'Self Intro',
+    savedlyUrl: 'https://savedly.net/f/48qytahx'
   },
   {
     id: 'anim-2d-06',
-    title: 'Atmospheric Isometric Cityscape & Cel-Shaded Storyboard',
-    type: 'photo',
-    mediaUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop',
-    tag: 'Isometric Art',
+    title: 'Rohan Walk Cycle // Full 8-Frame Kinetic Stride',
+    type: 'video',
+    mediaUrl: '/videos/animation-2d/anim2d_06_r5zsf6p9.mp4',
+    tag: 'Walk Cycle',
     aspect: 'landscape',
-    description: 'Isometric retro-futuristic city block blueprint featuring layered parallax buildings, color-blocked rooftop lighting, and signage.',
-    software: ['Illustrator', 'Photoshop'],
-    duration: 'Production Art'
+    description: 'Complete 2D character walk cycle breaking down contact, down, passing, and up poses with fluid spine and hair secondary motion.',
+    software: ['Adobe Animate', 'Photoshop'],
+    duration: 'Cycle Loop',
+    savedlyUrl: 'https://savedly.net/f/r5zsf6p9'
   },
   {
     id: 'anim-2d-07',
-    title: 'Fluid Organic Liquid Splashes & Smoke Physics Loop',
+    title: 'Bouncing Ball Dynamics // Squash & Stretch #01',
     type: 'video',
-    mediaUrl: '/videos/ay6khcyf_video.mp4',
-    poster: '/videos/ay6khcyf_poster.jpg',
-    tag: 'Liquid Physics',
-    aspect: 'portrait',
-    description: 'Tradition-inspired cel animation study on liquid surface tension, teardrop droplet splash dynamics, and viscous fluid gravity.',
-    software: ['TVPaint', 'After Effects'],
-    duration: '0:12'
+    mediaUrl: '/videos/animation-2d/anim2d_07_krh7cxgv.mp4',
+    tag: 'Squash & Stretch',
+    aspect: 'landscape',
+    description: 'Classical 12 animation principles breakdown demonstrating mass preservation, vertical squashing, and apex hang-time.',
+    software: ['Traditional Keyframing', 'Adobe Animate'],
+    duration: 'Physics Keying',
+    savedlyUrl: 'https://savedly.net/f/krh7cxgv'
   },
   {
     id: 'anim-2d-08',
-    title: 'Mecha Cockpit HUD & 2D Vector UI Overlay Sequence',
-    type: 'photo',
-    mediaUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop',
-    tag: 'FUI / HUD',
+    title: 'Metamorphosis // Fluid Organic Shape-Shift',
+    type: 'video',
+    mediaUrl: '/videos/animation-2d/anim2d_08_p7em968m.mp4',
+    tag: 'Morphing',
     aspect: 'landscape',
-    description: 'Futuristic vector heads-up display graphics, targeting reticles, radar telemetry sweeps, and warning iconography for animation overlay.',
-    software: ['Illustrator', 'After Effects'],
-    duration: 'Vector HUD'
+    description: 'Seamless fluid morphing transformation between organic silhouettes, studying volume conservation and graphic path transitions.',
+    software: ['Toon Boom Harmony', 'After Effects'],
+    duration: 'Morph Study',
+    savedlyUrl: 'https://savedly.net/f/p7em968m'
   },
   {
     id: 'anim-2d-09',
-    title: 'Explosive Combat Sakuga Action Reel Cut',
+    title: 'Kinetic Name ID // "ROHAN" Title Animation',
     type: 'video',
-    mediaUrl: 'https://cdn.jumpshare.com/preview/vw64keW9QzxrsAm74YyQs_Dthi5alxYlZnuvPy3tAEq_LRC3taoj7CFbgo0TT8e7HRm7REAjDOWkANdLVaXv2DS7jRJUAAIR48_-gQIBfyYGDPk1EGnE7-h4JX7jDLp9Jg6PfL_cIPtxNMFz_CBQaW6yjbN-I2pg_cnoHs_AmgI.mp4',
-    poster: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=1200&auto=format&fit=crop',
-    tag: 'Sakuga Reel',
-    aspect: 'portrait',
-    description: 'High-octane sakuga anime cut featuring sword slashes, smear arcs, camera perspective warping, and high frame-rate particle explosions.',
-    software: ['Clip Studio Paint', 'Premiere Pro'],
-    duration: '0:15'
-  },
-  {
-    id: 'anim-2d-10',
-    title: 'Fantasy Hero Visual Development & Color Keyframes',
-    type: 'photo',
-    mediaUrl: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1200&auto=format&fit=crop',
-    tag: 'Color Script',
+    mediaUrl: '/videos/animation-2d/anim2d_09_mxrra26b.mp4',
+    tag: 'Title Animation',
     aspect: 'landscape',
-    description: 'Color script and lighting moodboard for animated sequence transitioning from dawn golden hour to storm moonlight.',
-    software: ['Photoshop', 'Procreate'],
-    duration: 'Lighting Key'
-  },
-  {
-    id: 'anim-2d-11',
-    title: 'Retro Arcade Pixel & Cel Fusion Loop',
-    type: 'video',
-    mediaUrl: '/assets/diorama_render.mp4',
-    poster: '/assets/diorama_poster.jpg',
-    tag: 'Experimental',
-    aspect: 'square',
-    description: 'Charming blend of hand-drawn 2D vector animation with vintage CRT scanline distortion and 16-bit color dithering.',
-    software: ['After Effects', 'Aseprite'],
-    duration: '0:08'
-  },
-  {
-    id: 'anim-2d-12',
-    title: 'Mechanical Props & Weapon Turnaround Blueprints',
-    type: 'photo',
-    mediaUrl: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1200&auto=format&fit=crop',
-    tag: 'Prop Turnaround',
-    aspect: 'landscape',
-    description: 'Detailed animation prop schematics detailing mechanical breakaways, reload mechanisms, and energy core glow channels.',
-    software: ['Illustrator', 'Photoshop'],
-    duration: 'Prop Sheet'
+    description: 'High-impact kinetic typography and logo reveal animating the creator name with fluid strokes and energetic camera pushes.',
+    software: ['After Effects', 'Illustrator'],
+    duration: 'Title Reveal',
+    savedlyUrl: 'https://savedly.net/f/mxrra26b'
   }
 ];
 

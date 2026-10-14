@@ -11,6 +11,7 @@ import {
   SlidersHorizontal 
 } from 'lucide-react';
 import { SKETCH_GALLERY_ITEMS } from '../data/sketchData';
+import { resolveAsset } from '../utils/assets';
 import { SketchItem } from '../types';
 
 export const SketchGallery: React.FC = () => {
@@ -99,8 +100,9 @@ export const SketchGallery: React.FC = () => {
               item.aspect === 'portrait' ? 'aspect-[3/4]' : item.aspect === 'landscape' ? 'aspect-[16/10]' : 'aspect-square'
             }`}>
               <img
-                src={item.imageUrl}
+                src={resolveAsset(item.imageUrl)}
                 alt={item.title}
+                referrerPolicy="no-referrer"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
@@ -192,8 +194,9 @@ export const SketchGallery: React.FC = () => {
             <div className="p-5 sm:p-8 flex flex-col items-center">
               <div className="relative max-h-[58vh] rounded-xl overflow-hidden bg-black border border-white/10 shadow-2xl">
                 <img
-                  src={showUnderdrawing && activeSketchModal.roughSketchUrl ? activeSketchModal.roughSketchUrl : activeSketchModal.imageUrl}
+                  src={resolveAsset(showUnderdrawing && activeSketchModal.roughSketchUrl ? activeSketchModal.roughSketchUrl : activeSketchModal.imageUrl)}
                   alt={activeSketchModal.title}
+                  referrerPolicy="no-referrer"
                   className="max-h-[58vh] w-auto object-contain rounded-xl"
                 />
 

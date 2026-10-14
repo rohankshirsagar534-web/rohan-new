@@ -6,6 +6,8 @@ import { Marquee } from './Marquee';
 import { Animation2DGallery } from './Animation2DGallery';
 import { GraphicDesignShowreel } from './GraphicDesignShowreel';
 import { SketchGallery } from './SketchGallery';
+import { DigitalArtGallery } from './DigitalArtGallery';
+import { WebExperienceGallery } from './WebExperienceGallery';
 import { resolveAsset } from '../utils/assets';
 
 interface ProjectsProps {
@@ -15,10 +17,12 @@ interface ProjectsProps {
 const CATEGORIES: ProjectCategory[] = [
   'ALL',
   'SHORT AD FILM',
+  '2D ANIMATION',
   'VFX',
   'MOTION',
   '3D',
   'GRAPHIC DESIGN',
+  'DIGITAL ART',
   'SKETCH GALLERY',
   'WEB',
 ];
@@ -92,7 +96,11 @@ export const Projects: React.FC<ProjectsProps> = ({ onSelectProject }) => {
           </div>
           {CATEGORIES.map((cat) => {
             const isActive = selectedCategory === cat;
-            const count = cat === 'ALL' ? PROJECTS.length : PROJECTS.filter((p) => p.category === cat).length;
+            const count = cat === 'ALL' 
+              ? PROJECTS.length 
+              : cat === '2D ANIMATION' 
+                ? ANIMATION_2D_GALLERY.length 
+                : PROJECTS.filter((p) => p.category === cat).length;
             const displayLabel = cat;
             return (
               <button
@@ -307,8 +315,8 @@ export const Projects: React.FC<ProjectsProps> = ({ onSelectProject }) => {
           </div>
         )}
 
-        {/* 2. Distinct, Separated 2D Animation Space (Rendered when SHORT AD FILM is selected and user views ALL or 2D ANIMATION) */}
-        {isShortAdFilmActive && (adFilmSubView === 'all' || adFilmSubView === '2d_animation') && (
+        {/* 2. Distinct, Separated 2D Animation Space (Rendered when 2D ANIMATION, ALL, or SHORT AD FILM sub-view is selected) */}
+        {(selectedCategory === 'ALL' || selectedCategory === '2D ANIMATION' || (isShortAdFilmActive && (adFilmSubView === 'all' || adFilmSubView === '2d_animation'))) && (
           <Animation2DGallery />
         )}
 
@@ -317,9 +325,19 @@ export const Projects: React.FC<ProjectsProps> = ({ onSelectProject }) => {
           <GraphicDesignShowreel />
         )}
 
-        {/* 4. Dedicated Sketch Gallery & Analog Vault: Raw Gesture, TVC Storyboards, Inks & Lighting Studies */}
+        {/* 4. Dedicated Digital Art Gallery: 7 Concept Artworks & Vector Pieces */}
+        {(selectedCategory === 'ALL' || selectedCategory === 'DIGITAL ART') && (
+          <DigitalArtGallery />
+        )}
+
+        {/* 5. Dedicated Sketch Gallery & Analog Vault: Raw Gesture, TVC Storyboards, Inks & Lighting Studies */}
         {(selectedCategory === 'ALL' || selectedCategory === 'SKETCH GALLERY') && (
           <SketchGallery />
+        )}
+
+        {/* 6. Dedicated Web & Digital Experience Vault: Interactive Prototypes, Recordings & Design Systems */}
+        {(selectedCategory === 'ALL' || selectedCategory === 'WEB') && (
+          <WebExperienceGallery />
         )}
       </div>
     </section>

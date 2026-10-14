@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowUpRight, Camera, Film, Sparkles, Layers } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { Marquee } from './Marquee';
+import { resolveAsset } from '../utils/assets';
 
 export const About: React.FC = () => {
   return (
@@ -46,10 +47,10 @@ export const About: React.FC = () => {
               {/* Inner Photo */}
               <div className="relative w-full h-full rounded-2xl overflow-hidden bg-zinc-900">
                 <img
-                  src="/images/profile_rohan.jpg"
+                  src={resolveAsset('/images/profile_rohan.jpg')}
                   alt="Rohan Kshirsagar Profile"
                   referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover object-top contrast-105 group-hover:scale-105 transition-transform duration-700 ease-out brightness-95"
+                  className="w-full h-full object-cover object-center contrast-105 group-hover:scale-105 transition-transform duration-700 ease-out brightness-95"
                 />
 
                 {/* Viewfinder Overlays & Crosshairs */}
